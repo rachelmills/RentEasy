@@ -6,18 +6,23 @@
 //  Copyright (c) 2013 Rachel Mills. All rights reserved.
 //
 
-#import "reViewController.h"
+#import "REViewController.h"
 
-@interface reViewController ()
+@interface REViewController ()
 
 @end
 
-@implementation reViewController
+@implementation REViewController
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
+
+    
+    _textView.layer.cornerRadius = 10;
+    _tenantButton.layer.cornerRadius = 10;
+    _landlordButton.layer.cornerRadius = 10;
 }
 
 - (void)didReceiveMemoryWarning

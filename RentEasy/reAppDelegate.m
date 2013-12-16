@@ -6,9 +6,9 @@
 //  Copyright (c) 2013 Rachel Mills. All rights reserved.
 //
 
-#import "reAppDelegate.h"
+#import "REAppDelegate.h"
 
-@implementation reAppDelegate
+@implementation REAppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {

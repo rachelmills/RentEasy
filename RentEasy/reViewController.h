@@ -7,7 +7,15 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <QuartzCore/QuartzCore.h>
 
-@interface reViewController : UIViewController
+@interface REViewController : UIViewController
+
+
+@property (strong, nonatomic) IBOutlet UITextView *textView;
+
+@property (strong, nonatomic) IBOutlet UIButton *tenantButton;
+
+@property (strong, nonatomic) IBOutlet UIButton *landlordButton;
 
 @end
