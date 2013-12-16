@@ -22,6 +22,9 @@
 		AD3A458B185BE73B002759BA /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AD3A456A185BE73B002759BA /* UIKit.framework */; };
 		AD3A4593185BE73B002759BA /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = AD3A4591185BE73B002759BA /* InfoPlist.strings */; };
 		AD3A4595185BE73B002759BA /* RentEasyTests.m in Sources */ = {isa = PBXBuildFile; fileRef = AD3A4594185BE73B002759BA /* RentEasyTests.m */; };
+		AD60B668185F246C0082E66E /* RE_TenantTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AD60B667185F246C0082E66E /* RE_TenantTableViewController.m */; };
+		AD60B66B185F270F0082E66E /* RE_LandlordTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AD60B66A185F270F0082E66E /* RE_LandlordTableViewController.m */; };
+		AD60B66D185F292E0082E66E /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AD60B66C185F292E0082E66E /* QuartzCore.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -55,6 +58,11 @@
 		AD3A4590185BE73B002759BA /* RentEasyTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "RentEasyTests-Info.plist"; sourceTree = "<group>"; };
 		AD3A4592185BE73B002759BA /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		AD3A4594185BE73B002759BA /* RentEasyTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RentEasyTests.m; sourceTree = "<group>"; };
+		AD60B666185F246C0082E66E /* RE_TenantTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RE_TenantTableViewController.h; sourceTree = "<group>"; };
+		AD60B667185F246C0082E66E /* RE_TenantTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RE_TenantTableViewController.m; sourceTree = "<group>"; };
+		AD60B669185F270F0082E66E /* RE_LandlordTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RE_LandlordTableViewController.h; sourceTree = "<group>"; };
+		AD60B66A185F270F0082E66E /* RE_LandlordTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RE_LandlordTableViewController.m; sourceTree = "<group>"; };
+		AD60B66C185F292E0082E66E /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -62,6 +70,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AD60B66D185F292E0082E66E /* QuartzCore.framework in Frameworks */,
 				AD3A4569185BE73B002759BA /* CoreGraphics.framework in Frameworks */,
 				AD3A456B185BE73B002759BA /* UIKit.framework in Frameworks */,
 				AD3A4567185BE73B002759BA /* Foundation.framework in Frameworks */,
@@ -103,6 +112,7 @@
 		AD3A4565185BE73B002759BA /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				AD60B66C185F292E0082E66E /* QuartzCore.framework */,
 				AD3A4566185BE73B002759BA /* Foundation.framework */,
 				AD3A4568185BE73B002759BA /* CoreGraphics.framework */,
 				AD3A456A185BE73B002759BA /* UIKit.framework */,
@@ -122,6 +132,10 @@
 				AD3A457F185BE73B002759BA /* reViewController.m */,
 				AD3A4581185BE73B002759BA /* Images.xcassets */,
 				AD3A456D185BE73B002759BA /* Supporting Files */,
+				AD60B666185F246C0082E66E /* RE_TenantTableViewController.h */,
+				AD60B667185F246C0082E66E /* RE_TenantTableViewController.m */,
+				AD60B669185F270F0082E66E /* RE_LandlordTableViewController.h */,
+				AD60B66A185F270F0082E66E /* RE_LandlordTableViewController.m */,
 			);
 			path = RentEasy;
 			sourceTree = "<group>";
@@ -257,6 +271,8 @@
 				AD3A4573185BE73B002759BA /* main.m in Sources */,
 				AD3A4580185BE73B002759BA /* reViewController.m in Sources */,
 				AD3A4577185BE73B002759BA /* reAppDelegate.m in Sources */,
+				AD60B66B185F270F0082E66E /* RE_LandlordTableViewController.m in Sources */,
+				AD60B668185F246C0082E66E /* RE_TenantTableViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -475,6 +491,7 @@
 				AD3A459A185BE73B002759BA /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		AD3A459B185BE73B002759BA /* Build configuration list for PBXNativeTarget "RentEasyTests" */ = {
 			isa = XCConfigurationList;
@@ -483,6 +500,7 @@
 				AD3A459D185BE73B002759BA /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
