@@ -14,8 +14,10 @@
 
 @property (strong, nonatomic) IBOutlet UITextView *textView;
 
-@property (strong, nonatomic) IBOutlet UIButton *tenantButton;
+@property (strong, nonatomic) IBOutlet UIButton *landlordLogin;
+@property (strong, nonatomic) IBOutlet UIButton *landlordRegister;
 
-@property (strong, nonatomic) IBOutlet UIButton *landlordButton;
+@property (strong, nonatomic) IBOutlet UIButton *tenantLogin;
+@property (strong, nonatomic) IBOutlet UIButton *tenantRegister;
 
 @end
