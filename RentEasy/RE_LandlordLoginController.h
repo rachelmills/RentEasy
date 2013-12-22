@@ -12,6 +12,6 @@
 
 @property (strong, nonatomic) IBOutlet UITextField *landlordUserName;
 @property (strong, nonatomic) IBOutlet UITextField *landlordPassword;
-
+@property NSArray *fieldArray;
 
 @end

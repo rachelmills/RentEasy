@@ -1,20 +1,20 @@
 //
-//  RE_LandlordLoginController.m
+//  RE_TenantRegistrationController.m
 //  RentEasy
 //
-//  Created by Rachel Mills on 21/12/2013.
+//  Created by Rachel Mills on 22/12/2013.
 //  Copyright (c) 2013 Rachel Mills. All rights reserved.
 //
 
-#import "RE_LandlordLoginController.h"
-#import "SBJson.h"
+#import "RE_TenantRegistrationController.h"
 #import "RE_SOTextField.h"
+#import "SBJson.h"
 
-@interface RE_LandlordLoginController ()
+@interface RE_TenantRegistrationController ()
 
 @end
 
-@implementation RE_LandlordLoginController
+@implementation RE_TenantRegistrationController
 
 - (id)initWithStyle:(UITableViewStyle)style
 {
@@ -29,7 +29,16 @@
 {
     [super viewDidLoad];
     
-    _fieldArray = @[_landlordUserName, _landlordPassword];
+    // Add Apply and Cancel buttons to telephone key pad text field
+    UIToolbar* numberToolbar = [[UIToolbar alloc]initWithFrame:CGRectMake(0, 0, 320, 50)];
+    numberToolbar.barStyle = UIBarStyleBlackTranslucent;
+    numberToolbar.items = [NSArray arrayWithObjects:
+                           [[UIBarButtonItem alloc]initWithTitle:@"Cancel" style:UIBarButtonItemStyleBordered target:self action:@selector(cancelNumberPad)],
+                           [[UIBarButtonItem alloc]initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:nil action:nil],
+                           [[UIBarButtonItem alloc]initWithTitle:@"Apply" style:UIBarButtonItemStyleDone target:self action:@selector(doneWithNumberPad)],
+                           nil];
+    [numberToolbar sizeToFit];
+    _tenantTel.inputAccessoryView = numberToolbar;
 
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
@@ -38,22 +47,22 @@
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
 }
 
+-(void)cancelNumberPad{
+    [_tenantTel resignFirstResponder];
+    _tenantTel.text = @"";
+}
+
+-(void)doneWithNumberPad{
+    NSString *numberFromTheKeyboard = _tenantTel.text;
+    [_tenantTel resignFirstResponder];
+}
+
+
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
-
-/*- (BOOL)textFieldShouldReturn:(UITextField *)textField {
-    NSInteger nextTag = textField.tag + 1;
-    UIResponder *nextResponder = [textField.superview viewWithTag:nextTag];
-    if (nextResponder) {
-        [nextResponder becomeFirstResponder];
-    } else {
-        [textField resignFirstResponder];
-    }
-    return NO;
-}*/
 
 - (BOOL) textFieldShouldReturn:(UITextField *) textField {
     
@@ -61,7 +70,7 @@
     if (!didResign) return NO;
     
     if ([textField isKindOfClass:[RE_SOTextField class]])
-      [[(RE_SOTextField *) textField nextField] becomeFirstResponder];
+        [[(RE_SOTextField *)textField nextField] becomeFirstResponder];
     
     return YES;
     
@@ -73,18 +82,19 @@
     [alertView show];
 }
 
-- (IBAction)loginClicked:(id)sender {
+- (IBAction)registerButtonClicked:(id)sender {
     @try {
         
         // if both strings empty
-        if([[_landlordUserName text] isEqualToString:@""] || [[_landlordPassword text] isEqualToString:@""]) {
-            [self alertStatus:@"Please enter first name, surname and password" :@"Login Failed!"];
+        if([[_tenantUsername text] isEqualToString:@""] || [[_tenantPassword text] isEqualToString:@""] || [[_tenantFirstName text] isEqualToString:@""]
+           || [[_tenantSurname text] isEqualToString:@""] || [[_tenantTel text] isEqualToString:@""] || [[_tenantEmail text] isEqualToString:@""]) {
+            [self alertStatus:@"Please complete all fields" :@"Registration Failed!"];
         } else {
             //
-            NSString *post =[[NSString alloc] initWithFormat:@"username=%@&password=%@&user=%@",[_landlordUserName text], [_landlordPassword text], @"landlord"];
+            NSString *post =[[NSString alloc] initWithFormat:@"username=%@&password=%@&firstname=%@&surname=%@&tel=%@&email=%@&user=%@",[_tenantUsername text], [_tenantPassword text], [_tenantFirstName text], [_tenantSurname text], [_tenantTel text], [_tenantEmail text], @"tenant"];
             NSLog(@"PostData: %@",post);
             
-            NSURL *url = [NSURL URLWithString:@"http://localhost:8080/renteasy/login.php"];
+            NSURL *url = [NSURL URLWithString:@"http://localhost:8080/renteasy/register.php"];
             
             NSData *postData = [post dataUsingEncoding:NSASCIIStringEncoding allowLossyConversion:YES];
             
@@ -117,24 +127,24 @@
                 NSLog(@"%d",success);
                 if(success == 1)
                 {
-                    NSLog(@"Login SUCCESS");
-                    [self alertStatus:@"Logged in Successfully." :@"Login Success!"];
+                    NSLog(@"Registration SUCCESS");
+                    [self alertStatus:@"Registered Successfully." :@"Registration Success!"];
                     
                 } else {
                     
                     NSString *error_msg = (NSString *) [jsonData objectForKey:@"error_message"];
-                    [self alertStatus:error_msg :@"Login Failed1!"];
+                    [self alertStatus:error_msg :@"Registration Failed1!"];
                 }
                 
             } else {
                 if (error) NSLog(@"Error: %@", error);
-                [self alertStatus:@"Connection Failed" :@"Login Failed2!"];
+                [self alertStatus:@"Connection Failed" :@"Registration Failed2!"];
             }
         }
     }
     @catch (NSException * e) {
         NSLog(@"Exception: %@", e);
-        [self alertStatus:@"Login Failed." :@"Login Failed3!"];
+        [self alertStatus:@"Registration Failed." :@"Registration Failed3!"];
     }
 }
 
