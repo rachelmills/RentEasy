@@ -10,7 +10,6 @@
 
 @interface RE_TenantRegistrationController : UITableViewController
 
-@property (strong, nonatomic) IBOutlet UITextField *tenantUsername;
 @property (strong, nonatomic) IBOutlet UITextField *tenantPassword;
 @property (strong, nonatomic) IBOutlet UITextField *tenantFirstName;
 @property (strong, nonatomic) IBOutlet UITextField *tenantSurname;

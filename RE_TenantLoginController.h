@@ -10,7 +10,7 @@
 
 @interface RE_TenantLoginController : UITableViewController
 
-@property (strong, nonatomic) IBOutlet UITextField *tenantUserName;
+@property (strong, nonatomic) IBOutlet UITextField *tenantEmail;
 @property (strong, nonatomic) IBOutlet UITextField *tenantPassword;
 
 @end

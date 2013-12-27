@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 
 @interface RE_LandlordRegistrationController : UITableViewController
-@property (strong, nonatomic) IBOutlet UITextField *landlordUsername;
+
 @property (strong, nonatomic) IBOutlet UITextField *landlordPassword;
 @property (strong, nonatomic) IBOutlet UITextField *landlordFirstName;
 @property (strong, nonatomic) IBOutlet UITextField *landlordSurname;

@@ -8,6 +8,7 @@
 
 #import "RE_TenantLoginController.h"
 #import "SBJson.h"
+#import "RE_SOTextField.h"
 
 @interface RE_TenantLoginController ()
 
@@ -41,10 +42,18 @@
     // Dispose of any resources that can be recreated.
 }
 
-- (BOOL)textFieldShouldReturn:(UITextField *)textField {
-    [textField resignFirstResponder];
-    return NO;
+- (BOOL) textFieldShouldReturn:(UITextField *) textField {
+    
+    BOOL didResign = [textField resignFirstResponder];
+    if (!didResign) return NO;
+    
+    if ([textField isKindOfClass:[RE_SOTextField class]])
+        [[(RE_SOTextField *) textField nextField] becomeFirstResponder];
+    
+    return YES;
+    
 }
+
 
 - (void) alertStatus:(NSString *)msg :(NSString *)title {
     UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:title message:msg delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil, nil];
@@ -56,11 +65,11 @@
     @try {
         
         // if both strings empty
-        if([[_tenantUserName text] isEqualToString:@""] || [[_tenantPassword text] isEqualToString:@""]) {
-            [self alertStatus:@"Please enter first name, surname and password" :@"Login Failed!"];
+        if([[_tenantEmail text] isEqualToString:@""] || [[_tenantPassword text] isEqualToString:@""]) {
+            [self alertStatus:@"Please enter your email and password" :@"Login Failed!"];
         } else {
             //
-            NSString *post =[[NSString alloc] initWithFormat:@"username=%@&password=%@&&user=%@",[_tenantUserName text], [_tenantPassword text], @"tenant"];
+            NSString *post =[[NSString alloc] initWithFormat:@"email=%@&password=%@&user=%@",[_tenantEmail text], [_tenantPassword text], @"tenant"];
             NSLog(@"PostData: %@",post);
             
             NSURL *url = [NSURL URLWithString:@"http://localhost:8080/renteasy/login.php"];

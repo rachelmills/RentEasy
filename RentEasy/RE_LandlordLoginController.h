@@ -10,7 +10,7 @@
 
 @interface RE_LandlordLoginController : UITableViewController
 
-@property (strong, nonatomic) IBOutlet UITextField *landlordUserName;
+@property (strong, nonatomic) IBOutlet UITextField *landlordEmail;
 @property (strong, nonatomic) IBOutlet UITextField *landlordPassword;
 @property NSArray *fieldArray;
 

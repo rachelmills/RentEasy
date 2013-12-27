@@ -29,7 +29,7 @@
 {
     [super viewDidLoad];
     
-    _fieldArray = @[_landlordUserName, _landlordPassword];
+    _fieldArray = @[_landlordEmail, _landlordPassword];
 
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
@@ -77,11 +77,11 @@
     @try {
         
         // if both strings empty
-        if([[_landlordUserName text] isEqualToString:@""] || [[_landlordPassword text] isEqualToString:@""]) {
+        if([[_landlordEmail text] isEqualToString:@""] || [[_landlordPassword text] isEqualToString:@""]) {
             [self alertStatus:@"Please enter first name, surname and password" :@"Login Failed!"];
         } else {
             //
-            NSString *post =[[NSString alloc] initWithFormat:@"username=%@&password=%@&user=%@",[_landlordUserName text], [_landlordPassword text], @"landlord"];
+            NSString *post =[[NSString alloc] initWithFormat:@"email=%@&password=%@&user=%@",[_landlordEmail text], [_landlordPassword text], @"landlord"];
             NSLog(@"PostData: %@",post);
             
             NSURL *url = [NSURL URLWithString:@"http://localhost:8080/renteasy/login.php"];

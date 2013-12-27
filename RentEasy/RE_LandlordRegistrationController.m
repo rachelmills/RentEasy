@@ -52,22 +52,12 @@
     _landlordTel.text = @"";
 }
 
--(void)doneWithNumberPad{
-    NSString *numberFromTheKeyboard = _landlordTel.text;
-    [_landlordTel resignFirstResponder];
-}
-
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
 
-/*- (BOOL)textFieldShouldReturn:(UITextField *)textField {
-    [textField resignFirstResponder];
-    return NO;
-}
-*/
 - (BOOL) textFieldShouldReturn:(UITextField *) textField {
     
     BOOL didResign = [textField resignFirstResponder];
@@ -90,12 +80,12 @@
     @try {
         
         // if both strings empty
-        if([[_landlordUsername text] isEqualToString:@""] || [[_landlordPassword text] isEqualToString:@""] || [[_landlordFirstName text] isEqualToString:@""]
-           || [[_landlordSurname text] isEqualToString:@""] || [[_landlordTel text] isEqualToString:@""] || [[_landlordEmail text] isEqualToString:@""]) {
+        if([[_landlordEmail text] isEqualToString:@""] || [[_landlordPassword text] isEqualToString:@""] || [[_landlordFirstName text] isEqualToString:@""]
+           || [[_landlordSurname text] isEqualToString:@""] || [[_landlordTel text] isEqualToString:@""]) {
             [self alertStatus:@"Please complete all fields" :@"Registration Failed!"];
         } else {
             //
-            NSString *post =[[NSString alloc] initWithFormat:@"username=%@&password=%@&firstname=%@&surname=%@&tel=%@&email=%@&user=%@",[_landlordUsername text], [_landlordPassword text], [_landlordFirstName text], [_landlordSurname text], [_landlordTel text], [_landlordEmail text], @"landlord"];
+            NSString *post =[[NSString alloc] initWithFormat:@"email=%@&password=%@&firstname=%@&surname=%@&tel=%@&user=%@",[_landlordEmail text], [_landlordPassword text], [_landlordFirstName text], [_landlordSurname text], [_landlordTel text], @"landlord"];
             NSLog(@"PostData: %@",post);
             
             NSURL *url = [NSURL URLWithString:@"http://localhost:8080/renteasy/register.php"];

@@ -52,12 +52,6 @@
     _tenantTel.text = @"";
 }
 
--(void)doneWithNumberPad{
-    NSString *numberFromTheKeyboard = _tenantTel.text;
-    [_tenantTel resignFirstResponder];
-}
-
-
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
@@ -86,12 +80,12 @@
     @try {
         
         // if both strings empty
-        if([[_tenantUsername text] isEqualToString:@""] || [[_tenantPassword text] isEqualToString:@""] || [[_tenantFirstName text] isEqualToString:@""]
-           || [[_tenantSurname text] isEqualToString:@""] || [[_tenantTel text] isEqualToString:@""] || [[_tenantEmail text] isEqualToString:@""]) {
+        if([[_tenantEmail text] isEqualToString:@""] || [[_tenantPassword text] isEqualToString:@""] || [[_tenantFirstName text] isEqualToString:@""]
+           || [[_tenantSurname text] isEqualToString:@""] || [[_tenantTel text] isEqualToString:@""]) {
             [self alertStatus:@"Please complete all fields" :@"Registration Failed!"];
         } else {
             //
-            NSString *post =[[NSString alloc] initWithFormat:@"username=%@&password=%@&firstname=%@&surname=%@&tel=%@&email=%@&user=%@",[_tenantUsername text], [_tenantPassword text], [_tenantFirstName text], [_tenantSurname text], [_tenantTel text], [_tenantEmail text], @"tenant"];
+            NSString *post =[[NSString alloc] initWithFormat:@"password=%@&firstname=%@&surname=%@&tel=%@&email=%@&user=%@",[_tenantPassword text], [_tenantFirstName text], [_tenantSurname text], [_tenantTel text], [_tenantEmail text], @"tenant"];
             NSLog(@"PostData: %@",post);
             
             NSURL *url = [NSURL URLWithString:@"http://localhost:8080/renteasy/register.php"];
