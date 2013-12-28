@@ -9,12 +9,17 @@
 #import "RE_LandlordLoginController.h"
 #import "SBJson.h"
 #import "RE_SOTextField.h"
+#import "RE_LandlordViewController.h"
 
 @interface RE_LandlordLoginController ()
 
 @end
 
+BOOL loginSuccess = NO;
+
 @implementation RE_LandlordLoginController
+
+
 
 - (id)initWithStyle:(UITableViewStyle)style
 {
@@ -119,7 +124,7 @@
                 {
                     NSLog(@"Login SUCCESS");
                     [self alertStatus:@"Logged in Successfully." :@"Login Success!"];
-                    
+                    loginSuccess = YES; 
                 } else {
                     
                     NSString *error_msg = (NSString *) [jsonData objectForKey:@"error_message"];
@@ -136,6 +141,21 @@
         NSLog(@"Exception: %@", e);
         [self alertStatus:@"Login Failed." :@"Login Failed3!"];
     }
+    
+    
+    //[self performSegueWithIdentifier:@"LandlordSegue" sender:sender];
+
+}
+
+- (BOOL)shouldPerformSegueWithIdentifier:(NSString *)identifier sender:(id)sender {
+    if ([identifier isEqualToString:@"LandlordSegue"]) {
+        if (loginSuccess) {
+            return TRUE;
+        } else {
+            return FALSE;
+        }
+    }
+    return FALSE;
 }
 
 /*

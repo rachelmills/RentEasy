@@ -343,6 +343,7 @@
                                     </state>
                                     <connections>
                                         <action selector="loginClicked:" destination="kF9-dX-p0Q" eventType="touchUpInside" id="z8e-rb-4Y9"/>
+                                        <segue destination="mvu-7x-CYu" kind="push" identifier="LandlordSegue" id="cL6-gx-Yrr"/>
                                     </connections>
                                 </button>
                             </subviews>
@@ -421,6 +422,99 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1Kh-6W-dwY" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1196" y="-205"/>
+        </scene>
+        <!--Landlord View Controller - Landlord Home-->
+        <scene sceneID="ZHA-fj-Mw1">
+            <objects>
+                <viewController id="mvu-7x-CYu" customClass="RE_LandlordViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Q3x-iH-cZY"/>
+                        <viewControllerLayoutGuide type="bottom" id="vUr-LM-P2J"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="s6S-CH-fFE">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ZQk-sP-BGM">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Lrg-Ux-560">
+                                <rect key="frame" x="90" y="322" width="140" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Add property details">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <segue destination="uSG-1S-dEo" kind="push" id="tVk-S6-JbH"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Landlord Home" id="EEm-aY-hJg"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="cim-5w-Z1o" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1618" y="-205"/>
+        </scene>
+        <!--Add Property Controller View Controller - Add Property-->
+        <scene sceneID="1zF-OP-dBD">
+            <objects>
+                <viewController id="uSG-1S-dEo" customClass="RE_AddPropertyControllerViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="QC5-cJ-UAd"/>
+                        <viewControllerLayoutGuide type="bottom" id="SQb-1N-9nz"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Lns-hh-t8V">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="xWW-jH-YGg">
+                                <rect key="frame" x="109" y="75" width="204" height="29"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <segments>
+                                    <segment title="House"/>
+                                    <segment title="Unit"/>
+                                    <segment title="Townhouse"/>
+                                </segments>
+                                <connections>
+                                    <action selector="selectPropertyType" destination="uSG-1S-dEo" eventType="valueChanged" id="hor-Hh-eJT"/>
+                                </connections>
+                            </segmentedControl>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Property Type:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="j5m-Ou-Zs7">
+                                <rect key="frame" x="20" y="78" width="85" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="e9R-kf-v5Z">
+                                <rect key="frame" x="132" y="119" width="56" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Submit">
+                                    <color key="titleColor" red="0.12782846719999999" green="1" blue="0.61230068550000005" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="submitClicked:" destination="uSG-1S-dEo" eventType="touchUpInside" id="UNl-Ql-qB5"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Add Property" id="NlQ-vf-yXh"/>
+                    <connections>
+                        <outlet property="segment" destination="xWW-jH-YGg" id="2qc-gQ-3c6"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="oQv-MJ-fds" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2021" y="-205"/>
         </scene>
         <!--Tenant Registration Controller - Tenant Registration-->
         <scene sceneID="U7T-oO-TaX">
