@@ -79,7 +79,7 @@
 - (IBAction)registerButtonClicked:(id)sender {
     @try {
         
-        // if both strings empty
+        // if any strings empty
         if([[_landlordEmail text] isEqualToString:@""] || [[_landlordPassword text] isEqualToString:@""] || [[_landlordFirstName text] isEqualToString:@""]
            || [[_landlordSurname text] isEqualToString:@""] || [[_landlordTel text] isEqualToString:@""]) {
             [self alertStatus:@"Please complete all fields" :@"Registration Failed!"];

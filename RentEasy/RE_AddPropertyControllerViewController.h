@@ -11,11 +11,24 @@
 @interface RE_AddPropertyControllerViewController : UIViewController {
     
     IBOutlet UISegmentedControl *segment;
-
-    
+    IBOutlet UISegmentedControl *bedsSegment;
+    IBOutlet UISegmentedControl *bathsSegment;
+    IBOutlet UISegmentedControl *carSpacesSegment;
+    IBOutlet UISegmentedControl *petsYesNo;
 }
 
--(IBAction)selectPropertyType;
+- (IBAction)selectPropertyType:(UISegmentedControl *)sender;
+- (IBAction)selectNumberOfBeds:(UISegmentedControl *)sender;
+- (IBAction)selectNumberOfBathrooms:(UISegmentedControl *)sender;
+- (IBAction)selectNumberOfCarSpaces:(UISegmentedControl *)sender;
+- (IBAction)selectPetsAllowed:(UISegmentedControl *)sender;
+
+
 @property (strong, nonatomic) NSString *propertyType;
+@property (strong, nonatomic) NSString *numberOfBeds;
+@property (strong, nonatomic) NSString *numberOfBathrooms;
+@property (strong, nonatomic) NSString *numberOfCarSpaces;
+@property (nonatomic) BOOL petsAllowed;
+
 
 @end
