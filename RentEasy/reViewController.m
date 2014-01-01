@@ -23,6 +23,7 @@
     _textView.layer.cornerRadius = 10;
     _tenantLogin.layer.cornerRadius = 10;
     _landlordLogin.layer.cornerRadius = 10;
+    _serviceProvicerLogin.layer.cornerRadius = 10;
 }
 
 - (void)didReceiveMemoryWarning

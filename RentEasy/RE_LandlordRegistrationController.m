@@ -52,6 +52,10 @@
     _landlordTel.text = @"";
 }
 
+-(void)doneWithNumberPad{
+    [_landlordTel resignFirstResponder];
+}
+
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];

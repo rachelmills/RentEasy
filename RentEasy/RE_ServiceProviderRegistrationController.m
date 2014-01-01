@@ -1,20 +1,20 @@
 //
-//  RE_TenantRegistrationController.m
+//  RE_ServiceProviderRegistrationController.m
 //  RentEasy
 //
-//  Created by Rachel Mills on 22/12/2013.
-//  Copyright (c) 2013 Rachel Mills. All rights reserved.
+//  Created by Rachel Mills on 1/01/2014.
+//  Copyright (c) 2014 Rachel Mills. All rights reserved.
 //
 
-#import "RE_TenantRegistrationController.h"
-#import "RE_SOTextField.h"
+#import "RE_ServiceProviderRegistrationController.h"
 #import "SBJson.h"
+#import "RE_SOTextField.h"
 
-@interface RE_TenantRegistrationController ()
+@interface RE_ServiceProviderRegistrationController ()
 
 @end
 
-@implementation RE_TenantRegistrationController
+@implementation RE_ServiceProviderRegistrationController
 
 - (id)initWithStyle:(UITableViewStyle)style
 {
@@ -38,7 +38,8 @@
                            [[UIBarButtonItem alloc]initWithTitle:@"Apply" style:UIBarButtonItemStyleDone target:self action:@selector(doneWithNumberPad)],
                            nil];
     [numberToolbar sizeToFit];
-    _tenantTel.inputAccessoryView = numberToolbar;
+    _serviceProviderTel.inputAccessoryView = numberToolbar;
+
 
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
@@ -48,12 +49,12 @@
 }
 
 -(void)cancelNumberPad{
-    [_tenantTel resignFirstResponder];
-    _tenantTel.text = @"";
+    [_serviceProviderTel resignFirstResponder];
+    _serviceProviderTel.text = @"";
 }
 
 -(void)doneWithNumberPad{
-    [_tenantTel resignFirstResponder];
+    [_serviceProviderTel resignFirstResponder];
 }
 
 - (void)didReceiveMemoryWarning
@@ -83,13 +84,13 @@
 - (IBAction)registerButtonClicked:(id)sender {
     @try {
         
-        // if both strings empty
-        if([[_tenantEmail text] isEqualToString:@""] || [[_tenantPassword text] isEqualToString:@""] || [[_tenantFirstName text] isEqualToString:@""]
-           || [[_tenantSurname text] isEqualToString:@""] || [[_tenantTel text] isEqualToString:@""]) {
+        // if any strings empty
+        if([[_serviceProviderEmail text] isEqualToString:@""] || [[_serviceProviderPassword text] isEqualToString:@""] || [[_serviceProviderFirstName text] isEqualToString:@""]
+           || [[_serviceProviderSurname text] isEqualToString:@""] || [[_serviceProviderTel text] isEqualToString:@""]) {
             [self alertStatus:@"Please complete all fields" :@"Registration Failed!"];
         } else {
             //
-            NSString *post =[[NSString alloc] initWithFormat:@"password=%@&firstname=%@&surname=%@&tel=%@&email=%@&user=%@",[_tenantPassword text], [_tenantFirstName text], [_tenantSurname text], [_tenantTel text], [_tenantEmail text], @"tenant"];
+            NSString *post =[[NSString alloc] initWithFormat:@"password=%@&firstname=%@&surname=%@&tel=%@&email=%@&user=%@",[_serviceProviderPassword text], [_serviceProviderFirstName text], [_serviceProviderSurname text], [_serviceProviderTel text], [_serviceProviderEmail text], @"serviceProvider"];
             NSLog(@"PostData: %@",post);
             
             NSURL *url = [NSURL URLWithString:@"http://localhost:8080/renteasy/register.php"];
@@ -145,6 +146,7 @@
         [self alertStatus:@"Registration Failed." :@"Registration Failed3!"];
     }
 }
+
 
 /*
 // Override to support conditional editing of the table view.

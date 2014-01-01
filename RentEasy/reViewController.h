@@ -20,4 +20,7 @@
 @property (strong, nonatomic) IBOutlet UIButton *tenantLogin;
 @property (strong, nonatomic) IBOutlet UIButton *tenantRegister;
 
+@property (strong, nonatomic) IBOutlet UIButton *serviceProvicerLogin;
+@property (strong, nonatomic) IBOutlet UIButton *serviceProviderRegister;
+
 @end
