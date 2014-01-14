@@ -40,7 +40,6 @@ UILabel *label;
     
 }
 
-
 - (IBAction)selectPropertyType:(UISegmentedControl *)sender {
     if (segment.selectedSegmentIndex == 0) {
         _propertyType = @"House";
@@ -109,103 +108,34 @@ UILabel *label;
 
 - (IBAction)submitClicked:(id)sender {
     PFObject *property = [PFObject objectWithClassName:@"Property"];
-    [property setObject:self.propertyType forKey:@"PropertyType"];
-    [property setObject:[NSNumber numberWithInt:self.numberOfBeds] forKey:@"NumberOfBedrooms"];
-    [property setObject:[NSNumber numberWithInt:self.numberOfBathrooms] forKey:@"NumberOfBathrooms"];
-    [property setObject:[NSNumber numberWithInt:self.numberOfCarSpaces] forKey:@"NumberOfCarSpaces"];
-    [property setObject:[NSNumber numberWithBool:self.petsAllowed] forKey:@"PetsAllowed"];
-    [property saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
-        
-        if (succeeded){
-            NSLog(@"Object Uploaded!");
-        } else {
-            NSString *errorString = [[error userInfo] objectForKey:@"error"];
-            NSLog(@"Error: %@", errorString);
-        }
-    }];
-
-}
-- (IBAction)uploadPhoto:(id)sender {
-    UIActionSheet *photoSourcePicker = [[UIActionSheet alloc] initWithTitle:nil
-                                                                   delegate:self cancelButtonTitle:@"Cancel"
-                                                     destructiveButtonTitle:nil
-                                                          otherButtonTitles:	@"Take Photo",
-                                        @"Choose from Library",
-                                        nil,
-                                        nil];
     
-    [photoSourcePicker showInView:self.view];
+    if (segment.selectedSegmentIndex == UISegmentedControlNoSegment || bedsSegment.selectedSegmentIndex == UISegmentedControlNoSegment || bathsSegment.selectedSegmentIndex == UISegmentedControlNoSegment || carSpacesSegment.selectedSegmentIndex == UISegmentedControlNoSegment || petsYesNo.selectedSegmentIndex == UISegmentedControlNoSegment)  {
+        UIAlertView *myAlertView = [[UIAlertView alloc] initWithTitle:@"Error"
+                                                              message:@"Please complete all fields"
+                                                             delegate:nil
+                                                    cancelButtonTitle:@"OK"
+                                                    otherButtonTitles: nil];
+        [myAlertView show];
+
+    } else {
+        [property setObject:self.propertyType forKey:@"PropertyType"];
+        [property setObject:[NSNumber numberWithInt:self.numberOfBeds] forKey:@"NumberOfBedrooms"];
+        [property setObject:[NSNumber numberWithInt:self.numberOfBathrooms] forKey:@"NumberOfBathrooms"];
+        [property setObject:[NSNumber numberWithInt:self.numberOfCarSpaces] forKey:@"NumberOfCarSpaces"];
+        [property setObject:[NSNumber numberWithBool:self.petsAllowed] forKey:@"PetsAllowed"];
+        [property saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
+            
+            if (succeeded){
+                NSLog(@"Object Uploaded!");
+            } else {
+                NSString *errorString = [[error userInfo] objectForKey:@"error"];
+                NSLog(@"Error: %@", errorString);
+            }
+        }];
+    }
+    
+
 }
-
-
-//
-//- (void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex {
-//    switch (buttonIndex) {
-//        case 0: {
-//            if ([UIImagePickerController isSourceTypeAvailable: UIImagePickerControllerSourceTypeCamera]) {
-//                UIImagePickerController *imagePicker = [[UIImagePickerController alloc] init];
-//                imagePicker.sourceType = UIImagePickerControllerSourceTypeCamera;
-//                imagePicker.delegate = self;
-//                imagePicker.cameraFlashMode = UIImagePickerControllerCameraFlashModeOff;
-//                imagePicker.allowsEditing = NO;
-//                [self presentViewController:imagePicker animated:YES completion:nil];
-//
-//            } else {
-//                UIAlertView *alert;
-//                alert = [[UIAlertView alloc] initWithTitle:@"ERror" message:@"This device doesn't have a camera." delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil];
-//                [alert show];
-//            }
-//                break;
-//        }
-//        case 1: {
-//            if ([UIImagePickerController isSourceTypeAvailable:
-//                 UIImagePickerControllerSourceTypePhotoLibrary]) {
-//                UIImagePickerController *imagePicker = [[UIImagePickerController alloc] init];
-//                imagePicker.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
-//                imagePicker.delegate = self;
-//                imagePicker.allowsEditing = NO;
-//                [self presentViewController:imagePicker animated:YES completion:nil];
-//            } else {
-//                UIAlertView *alert;
-//                alert = [[UIAlertView alloc] initWithTitle:@"Error" message:@"This device doesn't support photo libraries." delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil];
-//                [alert show];
-//            }
-//            break;
-//        }
-//    }
-//}
-//
-//- (void) imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info {
-//    [self dismissViewControllerAnimated:YES completion:nil];
-//    
-//    NSData *image = UIImageJPEGRepresentation([info objectForKey:UIImagePickerControllerOriginalImage], 0.1);
-//
-//  //  self.flUploadEngine = [[fileUploadEngine alloc] initWithHostName:@"127.0.0.1:8080/renteasy" customHeaderFields:nil];
-//    
-//  //  NSMutableDictionary *postParams = [NSMutableDictionary dictionaryWithObjectsAndKeys:@"testApp", @"appID", nil];
-//  //  postParams = NULL;
-//  //  self.flOperation = [self.flUploadEngine postDataToServer:postParams path:@"localhost:8080/renteasy/savePhoto.php"];
-////    self.flOperation = [self.flUploadEngine postDataToServer:nil path:@"savePhoto.php"];
-//  //  [self.flOperation addData:image forKey:@"userfl" mimeType:@"image/jpeg"  fileName:@"upload.jpg"];
-//    
-// //   [self.flOperation addCompletionHandler:^(MKNetworkOperation* operation) {
-// //       NSLog(@"%@", [operation responseString]);
-//        /*
-//         This is where you handle a successful 200 response
-//         */
-//    }
-//
-// //   errorHandler:^(MKNetworkOperation *errorOp, NSError *error) {
-////        NSLog(@"%@", error);
-////        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Error" message:[error localizedDescription] delegate:nil cancelButtonTitle:@"Dismiss" otherButtonTitles:nil];
-////        [alert show];
-////    }];
-////    [self.flUploadEngine enqueueOperation:self.flOperation];
-////    
-////}
-//
-
-
 
 - (void)didReceiveMemoryWarning
 {

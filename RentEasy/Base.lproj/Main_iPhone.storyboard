@@ -44,7 +44,7 @@
                                         <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
-                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="email" minimumFontSize="17" id="ycM-FX-5yn" customClass="RE_SOTextField">
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="r" borderStyle="roundedRect" placeholder="email" minimumFontSize="17" id="ycM-FX-5yn" customClass="RE_SOTextField">
                                         <rect key="frame" x="6" y="69" width="149" height="30"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -53,7 +53,7 @@
                                             <outlet property="delegate" destination="PKP-BR-yr6" id="JZh-C6-thx"/>
                                         </connections>
                                     </textField>
-                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="password" minimumFontSize="17" id="UQj-wF-XTR" customClass="RE_SOTextField">
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="r" borderStyle="roundedRect" placeholder="password" minimumFontSize="17" id="UQj-wF-XTR" customClass="RE_SOTextField">
                                         <rect key="frame" x="6" y="119" width="149" height="30"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -530,7 +530,7 @@
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <action selector="uploadPhoto:" destination="uSG-1S-dEo" eventType="touchUpInside" id="Vz0-v9-flA"/>
+                                    <segue destination="UCH-ih-FnW" kind="push" id="eDz-rR-gg0"/>
                                 </connections>
                             </button>
                             <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" id="Uwk-Nj-iUV">
@@ -579,7 +579,6 @@
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <action selector="takePhoto:" destination="UCH-ih-FnW" eventType="touchUpInside" id="lQy-6u-Jlw"/>
                                     <action selector="takePhotoPressed:" destination="UCH-ih-FnW" eventType="touchUpInside" id="3mL-Gr-eVV"/>
                                 </connections>
                             </button>
@@ -590,11 +589,10 @@
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <action selector="selectPhoto:" destination="UCH-ih-FnW" eventType="touchUpInside" id="J5Q-w6-iyn"/>
                                     <action selector="selectPhotoPressed:" destination="UCH-ih-FnW" eventType="touchUpInside" id="vxu-8q-6wP"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="z4y-rz-cWp">
+                            <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="z4y-rz-cWp">
                                 <rect key="frame" x="113" y="445" width="95" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Upload Photo">
@@ -611,6 +609,7 @@
                     <connections>
                         <outlet property="imageView" destination="waj-hS-xSS" id="u6O-Oj-Xir"/>
                         <outlet property="photoToUpload" destination="waj-hS-xSS" id="Izg-5G-buO"/>
+                        <outlet property="takePhoto" destination="4rJ-0A-HDy" id="Upd-X4-Ixc"/>
                         <outlet property="uploadPhoto" destination="z4y-rz-cWp" id="feg-1C-Meg"/>
                     </connections>
                 </viewController>
@@ -849,7 +848,7 @@
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
         <segue reference="xtp-pu-p0K"/>
-        <segue reference="boY-7W-taR"/>
-        <segue reference="cfm-LM-7z1"/>
+        <segue reference="KhC-kt-joK"/>
+        <segue reference="2VX-yT-kYg"/>
     </inferredMetricsTieBreakers>
 </document>
