@@ -11,7 +11,13 @@
 @interface RE_PhotoController : UIViewController <UIImagePickerControllerDelegate, UINavigationControllerDelegate>
 
 @property (strong, nonatomic) IBOutlet UIImageView *imageView;
-- (IBAction)takePhoto:(UIButton *)sender;
-- (IBAction)selectPhoto:(UIButton *)sender;
+
+-(IBAction)takePhoto:(UIButton *)sender;
+-(IBAction)selectPhoto:(UIButton *)sender;
+-(void)savePhotos:(UIImage *)photos;
+//-(IBAction)uploadImage:(UIButton *)sender;
+
 
 @end
+
+

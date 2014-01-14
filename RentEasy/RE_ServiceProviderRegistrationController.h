@@ -8,14 +8,18 @@
 
 #import <UIKit/UIKit.h>
 
-@interface RE_ServiceProviderRegistrationController : UITableViewController
+@interface RE_ServiceProviderRegistrationController : UITableViewController {
+    
+    IBOutlet UISegmentedControl *specialitySegment;
+}
 
 @property (strong, nonatomic) IBOutlet UITextField *serviceProviderEmail;
-
 @property (strong, nonatomic) IBOutlet UITextField *serviceProviderPassword;
-
-@property (strong, nonatomic) IBOutlet UITextField *serviceProviderFirstName;
-@property (strong, nonatomic) IBOutlet UITextField *serviceProviderSurname;
+@property (strong, nonatomic) IBOutlet UITextField *serviceProviderCompanyName;
 @property (strong, nonatomic) IBOutlet UITextField *serviceProviderTel;
+
+- (IBAction)selectSpecialitytype:(UISegmentedControl *)sender;
+
+@property (strong, nonatomic) NSString *specialityType;
 
 @end

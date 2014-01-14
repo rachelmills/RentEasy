@@ -39,6 +39,12 @@
                            nil];
     [numberToolbar sizeToFit];
     _serviceProviderTel.inputAccessoryView = numberToolbar;
+    
+    UIFont *font = [UIFont boldSystemFontOfSize:8.0f];
+    NSDictionary *attributes = [NSDictionary dictionaryWithObject:font
+                                                           forKey:NSFontAttributeName];
+    [specialitySegment setTitleTextAttributes:attributes
+                           forState:UIControlStateNormal];
 
 
     // Uncomment the following line to preserve selection between presentations.
@@ -75,6 +81,18 @@
     
 }
 
+- (IBAction)selectSpecialitytype:(UISegmentedControl *)sender {
+    if (specialitySegment.selectedSegmentIndex == 0 ) {
+        _specialityType = @"Plumber";
+    } else if (specialitySegment.selectedSegmentIndex == 1) {
+        _specialityType = @"Electrician";
+    } else if (specialitySegment.selectedSegmentIndex == 2) {
+        _specialityType = @"Gardener";
+    } else if (specialitySegment.selectedSegmentIndex == 3) {
+        _specialityType = @"Maintenance";
+    }
+}
+
 - (void) alertStatus:(NSString *)msg :(NSString *)title {
     UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:title message:msg delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil, nil];
     
@@ -85,12 +103,12 @@
     @try {
         
         // if any strings empty
-        if([[_serviceProviderEmail text] isEqualToString:@""] || [[_serviceProviderPassword text] isEqualToString:@""] || [[_serviceProviderFirstName text] isEqualToString:@""]
-           || [[_serviceProviderSurname text] isEqualToString:@""] || [[_serviceProviderTel text] isEqualToString:@""]) {
+        if([[_serviceProviderEmail text] isEqualToString:@""] || [[_serviceProviderPassword text] isEqualToString:@""] || [[_serviceProviderCompanyName text] isEqualToString:@""]
+           || [[_serviceProviderTel text] isEqualToString:@""] || _specialityType == nil) {
             [self alertStatus:@"Please complete all fields" :@"Registration Failed!"];
         } else {
             //
-            NSString *post =[[NSString alloc] initWithFormat:@"password=%@&firstname=%@&surname=%@&tel=%@&email=%@&user=%@",[_serviceProviderPassword text], [_serviceProviderFirstName text], [_serviceProviderSurname text], [_serviceProviderTel text], [_serviceProviderEmail text], @"serviceProvider"];
+            NSString *post =[[NSString alloc] initWithFormat:@"password=%@&companyName=%@&tel=%@&email=%@&speciality=%@&user=%@",[_serviceProviderPassword text], [_serviceProviderCompanyName text], [_serviceProviderTel text], [_serviceProviderEmail text], _specialityType, @"serviceProvider"];
             NSLog(@"PostData: %@",post);
             
             NSURL *url = [NSURL URLWithString:@"http://localhost:8080/renteasy/register.php"];
@@ -147,7 +165,6 @@
     }
 }
 
-
 /*
 // Override to support conditional editing of the table view.
 - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
@@ -198,5 +215,6 @@
 }
 
  */
+
 
 @end

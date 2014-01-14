@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface RE_LandlordLoginController : UITableViewController
+@interface RE_LandlordLoginController : UIViewController
 
 @property (strong, nonatomic) IBOutlet UITextField *landlordEmail;
 @property (strong, nonatomic) IBOutlet UITextField *landlordPassword;

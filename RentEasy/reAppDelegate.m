@@ -7,12 +7,17 @@
 //
 
 #import "REAppDelegate.h"
+#import <Parse/Parse.h>
 
 @implementation REAppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     // Override point for customization after application launch.
+    
+    // Register app with the service
+    [Parse setApplicationId:@"R8sZNjhOSNOsbptNXfy1etfxgdcc9GSx2CfgTawu" clientKey:@"alEt3Sjtd97BozuPDnES29EOkc4HSyPsKIjjZFQw"];
+    
     return YES;
 }
 							

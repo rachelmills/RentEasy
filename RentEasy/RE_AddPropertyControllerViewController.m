@@ -106,6 +106,82 @@ UILabel *label;
     }
 }
 
+- (IBAction)uploadPhoto:(id)sender {
+    UIActionSheet *photoSourcePicker = [[UIActionSheet alloc] initWithTitle:nil
+                                                                   delegate:self cancelButtonTitle:@"Cancel"
+                                                     destructiveButtonTitle:nil
+                                                          otherButtonTitles:	@"Take Photo",
+                                        @"Choose from Library",
+                                        nil,
+                                        nil];
+    
+    [photoSourcePicker showInView:self.view];
+}
+
+- (void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex {
+    switch (buttonIndex) {
+        case 0: {
+            if ([UIImagePickerController isSourceTypeAvailable: UIImagePickerControllerSourceTypeCamera]) {
+                UIImagePickerController *imagePicker = [[UIImagePickerController alloc] init];
+                imagePicker.sourceType = UIImagePickerControllerSourceTypeCamera;
+                imagePicker.delegate = self;
+                imagePicker.cameraFlashMode = UIImagePickerControllerCameraFlashModeOff;
+                imagePicker.allowsEditing = NO;
+                [self presentViewController:imagePicker animated:YES completion:nil];
+
+            } else {
+                UIAlertView *alert;
+                alert = [[UIAlertView alloc] initWithTitle:@"ERror" message:@"This device doesn't have a camera." delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil];
+                [alert show];
+            }
+                break;
+        }
+        case 1: {
+            if ([UIImagePickerController isSourceTypeAvailable:
+                 UIImagePickerControllerSourceTypePhotoLibrary]) {
+                UIImagePickerController *imagePicker = [[UIImagePickerController alloc] init];
+                imagePicker.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
+                imagePicker.delegate = self;
+                imagePicker.allowsEditing = NO;
+                [self presentViewController:imagePicker animated:YES completion:nil];
+            } else {
+                UIAlertView *alert;
+                alert = [[UIAlertView alloc] initWithTitle:@"Error" message:@"This device doesn't support photo libraries." delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil];
+                [alert show];
+            }
+            break;
+        }
+    }
+}
+
+- (void) imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info {
+    [self dismissViewControllerAnimated:YES completion:nil];
+    
+    NSData *image = UIImageJPEGRepresentation([info objectForKey:UIImagePickerControllerOriginalImage], 0.1);
+
+  //  self.flUploadEngine = [[fileUploadEngine alloc] initWithHostName:@"127.0.0.1:8080/renteasy" customHeaderFields:nil];
+    
+  //  NSMutableDictionary *postParams = [NSMutableDictionary dictionaryWithObjectsAndKeys:@"testApp", @"appID", nil];
+  //  postParams = NULL;
+  //  self.flOperation = [self.flUploadEngine postDataToServer:postParams path:@"localhost:8080/renteasy/savePhoto.php"];
+//    self.flOperation = [self.flUploadEngine postDataToServer:nil path:@"savePhoto.php"];
+  //  [self.flOperation addData:image forKey:@"userfl" mimeType:@"image/jpeg"  fileName:@"upload.jpg"];
+    
+ //   [self.flOperation addCompletionHandler:^(MKNetworkOperation* operation) {
+ //       NSLog(@"%@", [operation responseString]);
+        /*
+         This is where you handle a successful 200 response
+         */
+    }
+
+ //   errorHandler:^(MKNetworkOperation *errorOp, NSError *error) {
+//        NSLog(@"%@", error);
+//        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Error" message:[error localizedDescription] delegate:nil cancelButtonTitle:@"Dismiss" otherButtonTitles:nil];
+//        [alert show];
+//    }];
+//    [self.flUploadEngine enqueueOperation:self.flOperation];
+//    
+//}
 
 - (IBAction)submitClicked:(id)sender {
     @try {

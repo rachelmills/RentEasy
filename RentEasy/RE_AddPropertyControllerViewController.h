@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface RE_AddPropertyControllerViewController : UIViewController {
+@interface RE_AddPropertyControllerViewController : UIViewController <UIActionSheetDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate> {
     
     IBOutlet UISegmentedControl *segment;
     IBOutlet UISegmentedControl *bedsSegment;
@@ -29,6 +29,7 @@
 @property (strong, nonatomic) NSString *numberOfBathrooms;
 @property (strong, nonatomic) NSString *numberOfCarSpaces;
 @property (nonatomic) BOOL petsAllowed;
+
 
 
 @end
