@@ -13,9 +13,11 @@
 
 @interface REViewController ()
 
-@property (strong, nonatomic) IBOutlet UITextField *emailTextField;
-@property (strong, nonatomic) IBOutlet UITextField *passwordTextField;
+@property (strong, nonatomic) IBOutlet UITextField *tenantEmail;
+@property (strong, nonatomic) IBOutlet UITextField *tenantPassword;
 @property (strong, nonatomic) NSString* userType;
+@property (strong, nonatomic) IBOutlet UITextField *landlordEmail;
+@property (strong, nonatomic) IBOutlet UITextField *landlordPassword;
 
 
 @end
@@ -31,19 +33,27 @@
     _textView.layer.cornerRadius = 10;
 }
 
--(IBAction)loginPressed:(id)sender
+- (IBAction)landlordLoginPressed:(id)sender {
+    [PFUser logInWithUsernameInBackground:self.landlordEmail.text password:self.landlordPassword.text block:^(PFUser *user, NSError *error) {
+        if (!user) {
+            //[self performSegueWithIdentifier:@"LandlordLoginSuccessful" sender:self];
+            [[[UIAlertView alloc] initWithTitle:@"Error" message:[error userInfo][@"error"] delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil] show];
+                    } //else {
+        //    [[[UIAlertView alloc] initWithTitle:@"Error" message:[error userInfo][@"error"] delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil] show];
+        //}
+    }];
+
+}
+
+-(IBAction)tenantLoginPressed:(id)sender
 {
-    [PFUser logInWithUsernameInBackground:self.emailTextField.text password:self.passwordTextField.text block:^(PFUser *user, NSError *error) {
+    [PFUser logInWithUsernameInBackground:self.tenantEmail.text password:self.tenantPassword.text block:^(PFUser *user, NSError *error) {
         if (user) {
-            [self performSegueWithIdentifier:@"LandlordLoginSuccessful" sender:self];
+            [self performSegueWithIdentifier:@"TenantLoginSuccessful" sender:self];
         } else {
             [[[UIAlertView alloc] initWithTitle:@"Error" message:[error userInfo][@"error"] delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil] show];
         }
     }];
-}
-
--(void)login {
-    
 }
 
 - (BOOL) textFieldShouldReturn:(UITextField *) textField {

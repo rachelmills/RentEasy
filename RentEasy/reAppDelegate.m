@@ -8,6 +8,7 @@
 
 #import "REAppDelegate.h"
 #import <Parse/Parse.h>
+#import "UserLandlord.h"
 
 @implementation REAppDelegate
 

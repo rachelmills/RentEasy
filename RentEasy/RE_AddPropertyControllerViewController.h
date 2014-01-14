@@ -25,9 +25,9 @@
 
 
 @property (strong, nonatomic) NSString *propertyType;
-@property (strong, nonatomic) NSString *numberOfBeds;
-@property (strong, nonatomic) NSString *numberOfBathrooms;
-@property (strong, nonatomic) NSString *numberOfCarSpaces;
+@property NSInteger numberOfBeds;
+@property NSInteger numberOfBathrooms;
+@property NSInteger numberOfCarSpaces;
 @property (nonatomic) BOOL petsAllowed;
 
 

@@ -40,6 +40,7 @@
     user[@"surname"] = self.surnameRegisterTextField.text;
     user[@"tel"] = self.telRegisterTextField.text;
     user[@"userType"] = self.userType;
+    NSLog(@"user type is:  %@", self.userType);
     
     [user signUpInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
         if (!error) {

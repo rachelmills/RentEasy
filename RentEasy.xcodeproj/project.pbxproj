@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		AD00428F1874100D00B35C6A /* RE_ServiceProviderRegistrationController.m in Sources */ = {isa = PBXBuildFile; fileRef = AD00428E1874100D00B35C6A /* RE_ServiceProviderRegistrationController.m */; };
+		AD00429518742D5700B35C6A /* RE_ServiceProviderLoginController.m in Sources */ = {isa = PBXBuildFile; fileRef = AD00429418742D5700B35C6A /* RE_ServiceProviderLoginController.m */; };
+		AD0CE0871870CC2B00C2A4ED /* RE_PhotoController.m in Sources */ = {isa = PBXBuildFile; fileRef = AD0CE0861870CC2B00C2A4ED /* RE_PhotoController.m */; };
 		AD3A4567185BE73B002759BA /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AD3A4566185BE73B002759BA /* Foundation.framework */; };
 		AD3A4569185BE73B002759BA /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AD3A4568185BE73B002759BA /* CoreGraphics.framework */; };
 		AD3A456B185BE73B002759BA /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AD3A456A185BE73B002759BA /* UIKit.framework */; };
@@ -22,9 +25,30 @@
 		AD3A458B185BE73B002759BA /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AD3A456A185BE73B002759BA /* UIKit.framework */; };
 		AD3A4593185BE73B002759BA /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = AD3A4591185BE73B002759BA /* InfoPlist.strings */; };
 		AD3A4595185BE73B002759BA /* RentEasyTests.m in Sources */ = {isa = PBXBuildFile; fileRef = AD3A4594185BE73B002759BA /* RentEasyTests.m */; };
-		AD60B668185F246C0082E66E /* RE_TenantTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AD60B667185F246C0082E66E /* RE_TenantTableViewController.m */; };
-		AD60B66B185F270F0082E66E /* RE_LandlordTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AD60B66A185F270F0082E66E /* RE_LandlordTableViewController.m */; };
+		AD4483B21884C2B8008A7122 /* ServiceProviderLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AD4483B11884C2B8008A7122 /* ServiceProviderLoginViewController.m */; };
+		AD5E624018664E80006D5729 /* RE_SOTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = AD5E623F18664E80006D5729 /* RE_SOTextField.m */; };
+		AD5EB20D1883E47A0026E326 /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AD5EB20C1883E47A0026E326 /* Parse.framework */; };
 		AD60B66D185F292E0082E66E /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AD60B66C185F292E0082E66E /* QuartzCore.framework */; };
+		AD910C93187D65DF00CFEEBB /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AD910C92187D65DF00CFEEBB /* CFNetwork.framework */; };
+		AD910C95187D65FB00CFEEBB /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AD910C94187D65FB00CFEEBB /* SystemConfiguration.framework */; };
+		AD910C97187D660200CFEEBB /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AD910C96187D660200CFEEBB /* Security.framework */; };
+		AD93F060188494BC00871031 /* RegistrationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AD93F05F188494BC00871031 /* RegistrationViewController.m */; };
+		AD93F06218849C3600871031 /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AD93F06118849C3600871031 /* MobileCoreServices.framework */; };
+		ADAB3A22186EA99600FBBD1A /* RE_AddPropertyControllerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ADAB3A21186EA99600FBBD1A /* RE_AddPropertyControllerViewController.m */; };
+		ADF24555186D89EA00848410 /* RE_LandlordViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ADF24554186D89EA00848410 /* RE_LandlordViewController.m */; };
+		ADF24558186D8E6A00848410 /* RE_CustomSegue.m in Sources */ = {isa = PBXBuildFile; fileRef = ADF24557186D8E6A00848410 /* RE_CustomSegue.m */; };
+		ADF44A9E1862C79F00663E60 /* NSObject+SBJson.m in Sources */ = {isa = PBXBuildFile; fileRef = ADF44A861862C79F00663E60 /* NSObject+SBJson.m */; };
+		ADF44A9F1862C79F00663E60 /* SBJsonParser.m in Sources */ = {isa = PBXBuildFile; fileRef = ADF44A891862C79F00663E60 /* SBJsonParser.m */; };
+		ADF44AA01862C79F00663E60 /* SBJsonStreamParser.m in Sources */ = {isa = PBXBuildFile; fileRef = ADF44A8B1862C79F00663E60 /* SBJsonStreamParser.m */; };
+		ADF44AA11862C79F00663E60 /* SBJsonStreamParserAccumulator.m in Sources */ = {isa = PBXBuildFile; fileRef = ADF44A8D1862C79F00663E60 /* SBJsonStreamParserAccumulator.m */; };
+		ADF44AA21862C79F00663E60 /* SBJsonStreamParserAdapter.m in Sources */ = {isa = PBXBuildFile; fileRef = ADF44A8F1862C79F00663E60 /* SBJsonStreamParserAdapter.m */; };
+		ADF44AA31862C79F00663E60 /* SBJsonStreamParserState.m in Sources */ = {isa = PBXBuildFile; fileRef = ADF44A911862C79F00663E60 /* SBJsonStreamParserState.m */; };
+		ADF44AA41862C79F00663E60 /* SBJsonStreamWriter.m in Sources */ = {isa = PBXBuildFile; fileRef = ADF44A931862C79F00663E60 /* SBJsonStreamWriter.m */; };
+		ADF44AA51862C79F00663E60 /* SBJsonStreamWriterAccumulator.m in Sources */ = {isa = PBXBuildFile; fileRef = ADF44A951862C79F00663E60 /* SBJsonStreamWriterAccumulator.m */; };
+		ADF44AA61862C79F00663E60 /* SBJsonStreamWriterState.m in Sources */ = {isa = PBXBuildFile; fileRef = ADF44A971862C79F00663E60 /* SBJsonStreamWriterState.m */; };
+		ADF44AA71862C79F00663E60 /* SBJsonTokeniser.m in Sources */ = {isa = PBXBuildFile; fileRef = ADF44A991862C79F00663E60 /* SBJsonTokeniser.m */; };
+		ADF44AA81862C79F00663E60 /* SBJsonUTF8Stream.m in Sources */ = {isa = PBXBuildFile; fileRef = ADF44A9B1862C79F00663E60 /* SBJsonUTF8Stream.m */; };
+		ADF44AA91862C79F00663E60 /* SBJsonWriter.m in Sources */ = {isa = PBXBuildFile; fileRef = ADF44A9D1862C79F00663E60 /* SBJsonWriter.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -38,6 +62,13 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		AD00428D1874100D00B35C6A /* RE_ServiceProviderRegistrationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RE_ServiceProviderRegistrationController.h; sourceTree = "<group>"; };
+		AD00428E1874100D00B35C6A /* RE_ServiceProviderRegistrationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RE_ServiceProviderRegistrationController.m; sourceTree = "<group>"; };
+		AD00429318742D5700B35C6A /* RE_ServiceProviderLoginController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RE_ServiceProviderLoginController.h; sourceTree = "<group>"; };
+		AD00429418742D5700B35C6A /* RE_ServiceProviderLoginController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RE_ServiceProviderLoginController.m; sourceTree = "<group>"; };
+		AD0CE0851870CC2B00C2A4ED /* RE_PhotoController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RE_PhotoController.h; sourceTree = "<group>"; };
+		AD0CE0861870CC2B00C2A4ED /* RE_PhotoController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RE_PhotoController.m; sourceTree = "<group>"; };
+		AD1959CF187E8F5C00F98DEE /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
 		AD3A4563185BE73B002759BA /* RentEasy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RentEasy.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AD3A4566185BE73B002759BA /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		AD3A4568185BE73B002759BA /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -58,11 +89,49 @@
 		AD3A4590185BE73B002759BA /* RentEasyTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "RentEasyTests-Info.plist"; sourceTree = "<group>"; };
 		AD3A4592185BE73B002759BA /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		AD3A4594185BE73B002759BA /* RentEasyTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RentEasyTests.m; sourceTree = "<group>"; };
-		AD60B666185F246C0082E66E /* RE_TenantTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RE_TenantTableViewController.h; sourceTree = "<group>"; };
-		AD60B667185F246C0082E66E /* RE_TenantTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RE_TenantTableViewController.m; sourceTree = "<group>"; };
-		AD60B669185F270F0082E66E /* RE_LandlordTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RE_LandlordTableViewController.h; sourceTree = "<group>"; };
-		AD60B66A185F270F0082E66E /* RE_LandlordTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RE_LandlordTableViewController.m; sourceTree = "<group>"; };
+		AD4483B01884C2B8008A7122 /* ServiceProviderLoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ServiceProviderLoginViewController.h; sourceTree = "<group>"; };
+		AD4483B11884C2B8008A7122 /* ServiceProviderLoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ServiceProviderLoginViewController.m; sourceTree = "<group>"; };
+		AD5E623E18664E80006D5729 /* RE_SOTextField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RE_SOTextField.h; path = ../RE_SOTextField.h; sourceTree = "<group>"; };
+		AD5E623F18664E80006D5729 /* RE_SOTextField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RE_SOTextField.m; path = ../RE_SOTextField.m; sourceTree = "<group>"; };
+		AD5EB20C1883E47A0026E326 /* Parse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Parse.framework; sourceTree = "<group>"; };
 		AD60B66C185F292E0082E66E /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		AD910C92187D65DF00CFEEBB /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
+		AD910C94187D65FB00CFEEBB /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		AD910C96187D660200CFEEBB /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
+		AD93F05E188494BC00871031 /* RegistrationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RegistrationViewController.h; sourceTree = "<group>"; };
+		AD93F05F188494BC00871031 /* RegistrationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RegistrationViewController.m; sourceTree = "<group>"; };
+		AD93F06118849C3600871031 /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
+		ADAB3A20186EA99600FBBD1A /* RE_AddPropertyControllerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RE_AddPropertyControllerViewController.h; sourceTree = "<group>"; };
+		ADAB3A21186EA99600FBBD1A /* RE_AddPropertyControllerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RE_AddPropertyControllerViewController.m; sourceTree = "<group>"; };
+		ADF24553186D89EA00848410 /* RE_LandlordViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RE_LandlordViewController.h; sourceTree = "<group>"; };
+		ADF24554186D89EA00848410 /* RE_LandlordViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RE_LandlordViewController.m; sourceTree = "<group>"; };
+		ADF24556186D8E6A00848410 /* RE_CustomSegue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RE_CustomSegue.h; sourceTree = "<group>"; };
+		ADF24557186D8E6A00848410 /* RE_CustomSegue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RE_CustomSegue.m; sourceTree = "<group>"; };
+		ADF44A851862C79F00663E60 /* NSObject+SBJson.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+SBJson.h"; sourceTree = "<group>"; };
+		ADF44A861862C79F00663E60 /* NSObject+SBJson.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+SBJson.m"; sourceTree = "<group>"; };
+		ADF44A871862C79F00663E60 /* SBJson.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBJson.h; sourceTree = "<group>"; };
+		ADF44A881862C79F00663E60 /* SBJsonParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBJsonParser.h; sourceTree = "<group>"; };
+		ADF44A891862C79F00663E60 /* SBJsonParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBJsonParser.m; sourceTree = "<group>"; };
+		ADF44A8A1862C79F00663E60 /* SBJsonStreamParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBJsonStreamParser.h; sourceTree = "<group>"; };
+		ADF44A8B1862C79F00663E60 /* SBJsonStreamParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBJsonStreamParser.m; sourceTree = "<group>"; };
+		ADF44A8C1862C79F00663E60 /* SBJsonStreamParserAccumulator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBJsonStreamParserAccumulator.h; sourceTree = "<group>"; };
+		ADF44A8D1862C79F00663E60 /* SBJsonStreamParserAccumulator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBJsonStreamParserAccumulator.m; sourceTree = "<group>"; };
+		ADF44A8E1862C79F00663E60 /* SBJsonStreamParserAdapter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBJsonStreamParserAdapter.h; sourceTree = "<group>"; };
+		ADF44A8F1862C79F00663E60 /* SBJsonStreamParserAdapter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBJsonStreamParserAdapter.m; sourceTree = "<group>"; };
+		ADF44A901862C79F00663E60 /* SBJsonStreamParserState.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBJsonStreamParserState.h; sourceTree = "<group>"; };
+		ADF44A911862C79F00663E60 /* SBJsonStreamParserState.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBJsonStreamParserState.m; sourceTree = "<group>"; };
+		ADF44A921862C79F00663E60 /* SBJsonStreamWriter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBJsonStreamWriter.h; sourceTree = "<group>"; };
+		ADF44A931862C79F00663E60 /* SBJsonStreamWriter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBJsonStreamWriter.m; sourceTree = "<group>"; };
+		ADF44A941862C79F00663E60 /* SBJsonStreamWriterAccumulator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBJsonStreamWriterAccumulator.h; sourceTree = "<group>"; };
+		ADF44A951862C79F00663E60 /* SBJsonStreamWriterAccumulator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBJsonStreamWriterAccumulator.m; sourceTree = "<group>"; };
+		ADF44A961862C79F00663E60 /* SBJsonStreamWriterState.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBJsonStreamWriterState.h; sourceTree = "<group>"; };
+		ADF44A971862C79F00663E60 /* SBJsonStreamWriterState.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBJsonStreamWriterState.m; sourceTree = "<group>"; };
+		ADF44A981862C79F00663E60 /* SBJsonTokeniser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBJsonTokeniser.h; sourceTree = "<group>"; };
+		ADF44A991862C79F00663E60 /* SBJsonTokeniser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBJsonTokeniser.m; sourceTree = "<group>"; };
+		ADF44A9A1862C79F00663E60 /* SBJsonUTF8Stream.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBJsonUTF8Stream.h; sourceTree = "<group>"; };
+		ADF44A9B1862C79F00663E60 /* SBJsonUTF8Stream.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBJsonUTF8Stream.m; sourceTree = "<group>"; };
+		ADF44A9C1862C79F00663E60 /* SBJsonWriter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBJsonWriter.h; sourceTree = "<group>"; };
+		ADF44A9D1862C79F00663E60 /* SBJsonWriter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBJsonWriter.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -70,9 +139,14 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AD93F06218849C3600871031 /* MobileCoreServices.framework in Frameworks */,
+				AD910C97187D660200CFEEBB /* Security.framework in Frameworks */,
+				AD910C95187D65FB00CFEEBB /* SystemConfiguration.framework in Frameworks */,
+				AD910C93187D65DF00CFEEBB /* CFNetwork.framework in Frameworks */,
 				AD60B66D185F292E0082E66E /* QuartzCore.framework in Frameworks */,
 				AD3A4569185BE73B002759BA /* CoreGraphics.framework in Frameworks */,
 				AD3A456B185BE73B002759BA /* UIKit.framework in Frameworks */,
+				AD5EB20D1883E47A0026E326 /* Parse.framework in Frameworks */,
 				AD3A4567185BE73B002759BA /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -93,6 +167,7 @@
 		AD3A455A185BE73B002759BA = {
 			isa = PBXGroup;
 			children = (
+				ADF44A841862C78400663E60 /* JSON */,
 				AD3A456C185BE73B002759BA /* RentEasy */,
 				AD3A458E185BE73B002759BA /* RentEasyTests */,
 				AD3A4565185BE73B002759BA /* Frameworks */,
@@ -112,6 +187,12 @@
 		AD3A4565185BE73B002759BA /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				AD93F06118849C3600871031 /* MobileCoreServices.framework */,
+				AD5EB20C1883E47A0026E326 /* Parse.framework */,
+				AD1959CF187E8F5C00F98DEE /* SenTestingKit.framework */,
+				AD910C96187D660200CFEEBB /* Security.framework */,
+				AD910C94187D65FB00CFEEBB /* SystemConfiguration.framework */,
+				AD910C92187D65DF00CFEEBB /* CFNetwork.framework */,
 				AD60B66C185F292E0082E66E /* QuartzCore.framework */,
 				AD3A4566185BE73B002759BA /* Foundation.framework */,
 				AD3A4568185BE73B002759BA /* CoreGraphics.framework */,
@@ -124,18 +205,32 @@
 		AD3A456C185BE73B002759BA /* RentEasy */ = {
 			isa = PBXGroup;
 			children = (
+				AD93F05E188494BC00871031 /* RegistrationViewController.h */,
+				AD93F05F188494BC00871031 /* RegistrationViewController.m */,
+				AD5E623E18664E80006D5729 /* RE_SOTextField.h */,
+				AD5E623F18664E80006D5729 /* RE_SOTextField.m */,
 				AD3A4575185BE73B002759BA /* reAppDelegate.h */,
 				AD3A4576185BE73B002759BA /* reAppDelegate.m */,
 				AD3A4578185BE73B002759BA /* Main_iPhone.storyboard */,
+				AD00429318742D5700B35C6A /* RE_ServiceProviderLoginController.h */,
+				AD00429418742D5700B35C6A /* RE_ServiceProviderLoginController.m */,
+				AD0CE0851870CC2B00C2A4ED /* RE_PhotoController.h */,
+				AD0CE0861870CC2B00C2A4ED /* RE_PhotoController.m */,
 				AD3A457B185BE73B002759BA /* Main_iPad.storyboard */,
 				AD3A457E185BE73B002759BA /* reViewController.h */,
 				AD3A457F185BE73B002759BA /* reViewController.m */,
 				AD3A4581185BE73B002759BA /* Images.xcassets */,
 				AD3A456D185BE73B002759BA /* Supporting Files */,
-				AD60B666185F246C0082E66E /* RE_TenantTableViewController.h */,
-				AD60B667185F246C0082E66E /* RE_TenantTableViewController.m */,
-				AD60B669185F270F0082E66E /* RE_LandlordTableViewController.h */,
-				AD60B66A185F270F0082E66E /* RE_LandlordTableViewController.m */,
+				AD00428D1874100D00B35C6A /* RE_ServiceProviderRegistrationController.h */,
+				AD00428E1874100D00B35C6A /* RE_ServiceProviderRegistrationController.m */,
+				ADF24556186D8E6A00848410 /* RE_CustomSegue.h */,
+				ADF24557186D8E6A00848410 /* RE_CustomSegue.m */,
+				ADF24553186D89EA00848410 /* RE_LandlordViewController.h */,
+				ADF24554186D89EA00848410 /* RE_LandlordViewController.m */,
+				ADAB3A20186EA99600FBBD1A /* RE_AddPropertyControllerViewController.h */,
+				ADAB3A21186EA99600FBBD1A /* RE_AddPropertyControllerViewController.m */,
+				AD4483B01884C2B8008A7122 /* ServiceProviderLoginViewController.h */,
+				AD4483B11884C2B8008A7122 /* ServiceProviderLoginViewController.m */,
 			);
 			path = RentEasy;
 			sourceTree = "<group>";
@@ -167,6 +262,38 @@
 				AD3A4591185BE73B002759BA /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		ADF44A841862C78400663E60 /* JSON */ = {
+			isa = PBXGroup;
+			children = (
+				ADF44A851862C79F00663E60 /* NSObject+SBJson.h */,
+				ADF44A861862C79F00663E60 /* NSObject+SBJson.m */,
+				ADF44A871862C79F00663E60 /* SBJson.h */,
+				ADF44A881862C79F00663E60 /* SBJsonParser.h */,
+				ADF44A891862C79F00663E60 /* SBJsonParser.m */,
+				ADF44A8A1862C79F00663E60 /* SBJsonStreamParser.h */,
+				ADF44A8B1862C79F00663E60 /* SBJsonStreamParser.m */,
+				ADF44A8C1862C79F00663E60 /* SBJsonStreamParserAccumulator.h */,
+				ADF44A8D1862C79F00663E60 /* SBJsonStreamParserAccumulator.m */,
+				ADF44A8E1862C79F00663E60 /* SBJsonStreamParserAdapter.h */,
+				ADF44A8F1862C79F00663E60 /* SBJsonStreamParserAdapter.m */,
+				ADF44A901862C79F00663E60 /* SBJsonStreamParserState.h */,
+				ADF44A911862C79F00663E60 /* SBJsonStreamParserState.m */,
+				ADF44A921862C79F00663E60 /* SBJsonStreamWriter.h */,
+				ADF44A931862C79F00663E60 /* SBJsonStreamWriter.m */,
+				ADF44A941862C79F00663E60 /* SBJsonStreamWriterAccumulator.h */,
+				ADF44A951862C79F00663E60 /* SBJsonStreamWriterAccumulator.m */,
+				ADF44A961862C79F00663E60 /* SBJsonStreamWriterState.h */,
+				ADF44A971862C79F00663E60 /* SBJsonStreamWriterState.m */,
+				ADF44A981862C79F00663E60 /* SBJsonTokeniser.h */,
+				ADF44A991862C79F00663E60 /* SBJsonTokeniser.m */,
+				ADF44A9A1862C79F00663E60 /* SBJsonUTF8Stream.h */,
+				ADF44A9B1862C79F00663E60 /* SBJsonUTF8Stream.m */,
+				ADF44A9C1862C79F00663E60 /* SBJsonWriter.h */,
+				ADF44A9D1862C79F00663E60 /* SBJsonWriter.m */,
+			);
+			name = JSON;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -268,11 +395,30 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				ADF44AA31862C79F00663E60 /* SBJsonStreamParserState.m in Sources */,
+				ADF44A9F1862C79F00663E60 /* SBJsonParser.m in Sources */,
+				ADF44AA21862C79F00663E60 /* SBJsonStreamParserAdapter.m in Sources */,
+				AD00429518742D5700B35C6A /* RE_ServiceProviderLoginController.m in Sources */,
+				AD0CE0871870CC2B00C2A4ED /* RE_PhotoController.m in Sources */,
 				AD3A4573185BE73B002759BA /* main.m in Sources */,
+				ADF44AA11862C79F00663E60 /* SBJsonStreamParserAccumulator.m in Sources */,
 				AD3A4580185BE73B002759BA /* reViewController.m in Sources */,
 				AD3A4577185BE73B002759BA /* reAppDelegate.m in Sources */,
-				AD60B66B185F270F0082E66E /* RE_LandlordTableViewController.m in Sources */,
-				AD60B668185F246C0082E66E /* RE_TenantTableViewController.m in Sources */,
+				ADF24555186D89EA00848410 /* RE_LandlordViewController.m in Sources */,
+				ADF24558186D8E6A00848410 /* RE_CustomSegue.m in Sources */,
+				AD93F060188494BC00871031 /* RegistrationViewController.m in Sources */,
+				ADF44AA61862C79F00663E60 /* SBJsonStreamWriterState.m in Sources */,
+				ADF44AA41862C79F00663E60 /* SBJsonStreamWriter.m in Sources */,
+				AD4483B21884C2B8008A7122 /* ServiceProviderLoginViewController.m in Sources */,
+				ADF44AA51862C79F00663E60 /* SBJsonStreamWriterAccumulator.m in Sources */,
+				ADAB3A22186EA99600FBBD1A /* RE_AddPropertyControllerViewController.m in Sources */,
+				ADF44AA71862C79F00663E60 /* SBJsonTokeniser.m in Sources */,
+				AD5E624018664E80006D5729 /* RE_SOTextField.m in Sources */,
+				ADF44A9E1862C79F00663E60 /* NSObject+SBJson.m in Sources */,
+				ADF44AA01862C79F00663E60 /* SBJsonStreamParser.m in Sources */,
+				ADF44AA81862C79F00663E60 /* SBJsonUTF8Stream.m in Sources */,
+				AD00428F1874100D00B35C6A /* RE_ServiceProviderRegistrationController.m in Sources */,
+				ADF44AA91862C79F00663E60 /* SBJsonWriter.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -409,9 +555,19 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+					/Users/rachelmills/Desktop/RentEasy,
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "RentEasy/RentEasy-Prefix.pch";
 				INFOPLIST_FILE = "RentEasy/RentEasy-Info.plist";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"/Users/rachelmills/Desktop/RentEasy/ocmock-master/Examples/iOS5Example/usr/lib",
+					"/Users/rachelmills/Desktop/RentEasy/ocmock-master/Examples/iPhoneExample/Libraries",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
@@ -422,9 +578,19 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+					/Users/rachelmills/Desktop/RentEasy,
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "RentEasy/RentEasy-Prefix.pch";
 				INFOPLIST_FILE = "RentEasy/RentEasy-Info.plist";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"/Users/rachelmills/Desktop/RentEasy/ocmock-master/Examples/iOS5Example/usr/lib",
+					"/Users/rachelmills/Desktop/RentEasy/ocmock-master/Examples/iPhoneExample/Libraries",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};

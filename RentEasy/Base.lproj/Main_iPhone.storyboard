@@ -86,7 +86,7 @@
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
                                         <connections>
-                                            <action selector="loginPressed:" destination="PKP-BR-yr6" eventType="touchUpInside" id="h9H-vO-2d9"/>
+                                            <action selector="landlordLoginPressed:" destination="PKP-BR-yr6" eventType="touchUpInside" id="UEo-b0-xi1"/>
                                             <segue destination="mvu-7x-CYu" kind="push" identifier="LandlordLoginSuccessful" id="KhC-kt-joK"/>
                                         </connections>
                                     </button>
@@ -128,7 +128,7 @@
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
                                         <connections>
-                                            <action selector="loginPressed:" destination="PKP-BR-yr6" eventType="touchUpInside" id="4ow-BS-ETd"/>
+                                            <action selector="tenantLoginPressed:" destination="PKP-BR-yr6" eventType="touchUpInside" id="crT-uI-AmU"/>
                                             <segue destination="736-Dr-AeJ" kind="push" identifier="TenantLoginSuccessful" id="2VX-yT-kYg"/>
                                         </connections>
                                     </button>
@@ -175,6 +175,10 @@
                     <extendedEdge key="edgesForExtendedLayout"/>
                     <navigationItem key="navigationItem" title="***Rental Star***" id="dJb-M2-rqr"/>
                     <connections>
+                        <outlet property="landlordEmail" destination="ycM-FX-5yn" id="9pO-cI-8Pj"/>
+                        <outlet property="landlordPassword" destination="UQj-wF-XTR" id="fdr-rY-Ldg"/>
+                        <outlet property="tenantEmail" destination="m2I-rW-Sha" id="VJD-cr-GCf"/>
+                        <outlet property="tenantPassword" destination="oDa-Jr-qmF" id="A35-Dk-ydc"/>
                         <outlet property="textView" destination="pvC-N5-Rt6" id="BAI-nV-yow"/>
                     </connections>
                 </viewController>
@@ -219,8 +223,6 @@
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
                                         <connections>
-                                            <action selector="logInPressed:" destination="ef3-ac-qIr" eventType="touchUpInside" id="qwx-zg-vK0"/>
-                                            <action selector="loginPressed:" destination="PKP-BR-yr6" eventType="touchUpInside" id="DGf-gD-yqf"/>
                                             <segue destination="WMK-rG-VsH" kind="push" identifier="LoginSuccessful" id="DfB-Jm-OFD"/>
                                         </connections>
                                     </button>
@@ -376,7 +378,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="KiY-Pu-Hrn" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="436" y="107"/>
+            <point key="canvasLocation" x="568" y="107"/>
         </scene>
         <!--Landlord View Controller - Landlord Home-->
         <scene sceneID="ZHA-fj-Mw1">
@@ -528,7 +530,7 @@
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <action selector="uploadPhoto:" destination="uSG-1S-dEo" eventType="touchUpInside" id="GkF-Ry-9bh"/>
+                                    <action selector="uploadPhoto:" destination="uSG-1S-dEo" eventType="touchUpInside" id="Vz0-v9-flA"/>
                                 </connections>
                             </button>
                             <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" id="Uwk-Nj-iUV">
@@ -571,31 +573,36 @@
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="4rJ-0A-HDy">
-                                <rect key="frame" x="122" y="394" width="77" height="30"/>
+                                <rect key="frame" x="20" y="402" width="77" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Take Photo">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
                                     <action selector="takePhoto:" destination="UCH-ih-FnW" eventType="touchUpInside" id="lQy-6u-Jlw"/>
+                                    <action selector="takePhotoPressed:" destination="UCH-ih-FnW" eventType="touchUpInside" id="3mL-Gr-eVV"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="6Yo-aM-fVB">
-                                <rect key="frame" x="116" y="423" width="88" height="30"/>
+                                <rect key="frame" x="212" y="402" width="88" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Select Photo">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
                                     <action selector="selectPhoto:" destination="UCH-ih-FnW" eventType="touchUpInside" id="J5Q-w6-iyn"/>
+                                    <action selector="selectPhotoPressed:" destination="UCH-ih-FnW" eventType="touchUpInside" id="vxu-8q-6wP"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="z4y-rz-cWp">
-                                <rect key="frame" x="113" y="452" width="95" height="30"/>
+                                <rect key="frame" x="113" y="445" width="95" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Upload Photo">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="sendPressed:" destination="UCH-ih-FnW" eventType="touchUpInside" id="tDP-fT-aj0"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
@@ -603,6 +610,8 @@
                     <navigationItem key="navigationItem" title="Upload Photos" id="82g-D4-cYG"/>
                     <connections>
                         <outlet property="imageView" destination="waj-hS-xSS" id="u6O-Oj-Xir"/>
+                        <outlet property="photoToUpload" destination="waj-hS-xSS" id="Izg-5G-buO"/>
+                        <outlet property="uploadPhoto" destination="z4y-rz-cWp" id="feg-1C-Meg"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ud4-o4-TW1" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -839,7 +848,7 @@
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="DSs-Zq-w1k"/>
+        <segue reference="xtp-pu-p0K"/>
         <segue reference="boY-7W-taR"/>
         <segue reference="cfm-LM-7z1"/>
     </inferredMetricsTieBreakers>
