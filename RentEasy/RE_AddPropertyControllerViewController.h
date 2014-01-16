@@ -30,6 +30,7 @@
 @property NSInteger numberOfCarSpaces;
 @property (nonatomic) BOOL petsAllowed;
 
+@property (strong, nonatomic) NSMutableArray *images;
 
 
 @end

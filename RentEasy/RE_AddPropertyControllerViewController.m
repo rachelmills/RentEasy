@@ -9,8 +9,11 @@
 #import "RE_AddPropertyControllerViewController.h"
 #import "SBJson.h"
 #import <Parse/Parse.h>
+#import "RE_PhotoController.h"
 
 @interface RE_AddPropertyControllerViewController ()
+
+
 
 @end
 
@@ -107,6 +110,13 @@ UILabel *label;
 }
 
 - (IBAction)submitClicked:(id)sender {
+    
+    // Display the loading spinner
+    UIActivityIndicatorView *loadingSpinner = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhiteLarge];
+    [loadingSpinner setCenter:CGPointMake(self.view.frame.size.width/2.0f, self.view.frame.size.height/2.0f)];
+    [loadingSpinner startAnimating];
+    [self.view addSubview:loadingSpinner];
+
     PFObject *property = [PFObject objectWithClassName:@"Property"];
     
     if (segment.selectedSegmentIndex == UISegmentedControlNoSegment || bedsSegment.selectedSegmentIndex == UISegmentedControlNoSegment || bathsSegment.selectedSegmentIndex == UISegmentedControlNoSegment || carSpacesSegment.selectedSegmentIndex == UISegmentedControlNoSegment || petsYesNo.selectedSegmentIndex == UISegmentedControlNoSegment)  {
@@ -134,7 +144,43 @@ UILabel *label;
         }];
     }
     
+    for (int i = 0; i < [self images].count; i++) {
+        PFFile * image = [[self images]objectAtIndex:i];
+    
+        [image saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
+        if (succeeded) {
+            // 2
+            PFObject *propertyObject = [PFObject objectWithClassName:@"PropertyImageObject"];
+            propertyObject[@"image"] = image;
+            propertyObject[@"user"] = [PFUser currentUser].username;
+            propertyObject[@"property"] = property;
+            
+            // 3
+            [propertyObject saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
+                // 4
+                if (succeeded) {
+                    [self.navigationController popViewControllerAnimated:YES];
+                } else {
+                    [[[UIAlertView alloc] initWithTitle:@"Error" message:[error userInfo][@"error"] delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil] show];
+                }
+            }];
+        } else {
+            // 5
+            [[[UIAlertView alloc] initWithTitle:@"Error" message:[error userInfo][@"error"] delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil] show];
+        }
+    } progressBlock:^(int percentDone) {
+        NSLog(@"Uploaded: %d%%", percentDone);
+    }];
+        
+    }
+    
 
+}
+
+-(IBAction)uploadPhotos:(UIStoryboardSegue *)segue {
+    // have access to source here
+    RE_PhotoController *photoController = [segue sourceViewController];
+    [self setImages:[photoController images]];
 }
 
 - (void)didReceiveMemoryWarning
