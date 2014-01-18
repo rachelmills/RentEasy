@@ -8,6 +8,7 @@
 
 #import "ServiceProviderLoginViewController.h"
 #import <Parse/Parse.h>
+#import "RE_SOTextField.h"
 
 @interface ServiceProviderLoginViewController ()
 
@@ -38,6 +39,16 @@
     }];
 }
 
+- (BOOL) textFieldShouldReturn:(UITextField *) textField {
+    
+    BOOL didResign = [textField resignFirstResponder];
+    if (!didResign) return NO;
+    
+    if ([textField isKindOfClass:[RE_SOTextField class]])
+        [[(RE_SOTextField *) textField nextField] becomeFirstResponder];
+    
+    return YES;
+}
 
 - (void)viewDidLoad
 {

@@ -7,7 +7,7 @@
 //
 
 #import "RE_ServiceProviderRegistrationController.h"
-#import "SBJson.h"
+
 #import "RE_SOTextField.h"
 
 @interface RE_ServiceProviderRegistrationController ()
@@ -99,71 +99,6 @@
     [alertView show];
 }
 
-- (IBAction)registerButtonClicked:(id)sender {
-    @try {
-        
-        // if any strings empty
-        if([[_serviceProviderEmail text] isEqualToString:@""] || [[_serviceProviderPassword text] isEqualToString:@""] || [[_serviceProviderCompanyName text] isEqualToString:@""]
-           || [[_serviceProviderTel text] isEqualToString:@""] || _specialityType == nil) {
-            [self alertStatus:@"Please complete all fields" :@"Registration Failed!"];
-        } else {
-            //
-            NSString *post =[[NSString alloc] initWithFormat:@"password=%@&companyName=%@&tel=%@&email=%@&speciality=%@&user=%@",[_serviceProviderPassword text], [_serviceProviderCompanyName text], [_serviceProviderTel text], [_serviceProviderEmail text], _specialityType, @"serviceProvider"];
-            NSLog(@"PostData: %@",post);
-            
-            NSURL *url = [NSURL URLWithString:@"http://localhost:8080/renteasy/register.php"];
-            
-            NSData *postData = [post dataUsingEncoding:NSASCIIStringEncoding allowLossyConversion:YES];
-            
-            NSString *postLength = [NSString stringWithFormat:@"%d", [postData length]];
-            
-            NSMutableURLRequest *request = [[NSMutableURLRequest alloc] init];
-            [request setURL:url];
-            [request setHTTPMethod:@"POST"];
-            [request setValue:postLength forHTTPHeaderField:@"Content-Length"];
-            [request setValue:@"application/json" forHTTPHeaderField:@"Accept"];
-            [request setValue:@"application/x-www-form-urlencoded" forHTTPHeaderField:@"Content-Type"];
-            [request setHTTPBody:postData];
-            
-            //[NSURLRequest setAllowsAnyHTTPSCertificate:YES forHost:[url host]];
-            
-            NSError *error = [[NSError alloc] init];
-            NSHTTPURLResponse *response = nil;
-            NSData *urlData=[NSURLConnection sendSynchronousRequest:request returningResponse:&response error:&error];
-            
-            NSLog(@"Response code: %d", [response statusCode]);
-            if ([response statusCode] >=200 && [response statusCode] <300)
-            {
-                NSString *responseData = [[NSString alloc]initWithData:urlData encoding:NSUTF8StringEncoding];
-                NSLog(@"Response ==> %@", responseData);
-                
-                SBJsonParser *jsonParser = [SBJsonParser new];
-                NSDictionary *jsonData = (NSDictionary *) [jsonParser objectWithString:responseData error:nil];
-                NSLog(@"%@",jsonData);
-                NSInteger success = [(NSNumber *) [jsonData objectForKey:@"success"] integerValue];
-                NSLog(@"%d",success);
-                if(success == 1)
-                {
-                    NSLog(@"Registration SUCCESS");
-                    [self alertStatus:@"Registered Successfully." :@"Registration Success!"];
-                    
-                } else {
-                    
-                    NSString *error_msg = (NSString *) [jsonData objectForKey:@"error_message"];
-                    [self alertStatus:error_msg :@"Registration Failed1!"];
-                }
-                
-            } else {
-                if (error) NSLog(@"Error: %@", error);
-                [self alertStatus:@"Connection Failed" :@"Registration Failed2!"];
-            }
-        }
-    }
-    @catch (NSException * e) {
-        NSLog(@"Exception: %@", e);
-        [self alertStatus:@"Registration Failed." :@"Registration Failed3!"];
-    }
-}
 
 /*
 // Override to support conditional editing of the table view.

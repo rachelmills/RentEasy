@@ -11,12 +11,12 @@
 #import "RE_SOTextField.h"
 
 @interface RegistrationViewController ()
+
 @property (strong, nonatomic) IBOutlet UITextField *emailRegisterTextField;
 @property (strong, nonatomic) IBOutlet UITextField *passwordRegisterTextField;
 @property (strong, nonatomic) IBOutlet UITextField *firstNameRegisterTextField;
 @property (strong, nonatomic) IBOutlet UITextField *surnameRegisterTextField;
 @property (strong, nonatomic) IBOutlet UITextField *telRegisterTextField;
-
 
 @end
 

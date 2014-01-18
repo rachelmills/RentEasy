@@ -7,7 +7,6 @@
 //
 
 #import "RE_PhotoController.h"
-#import "SBJson.h"
 #import <Parse/Parse.h>
 #import "RE_AddPropertyControllerViewController.h"
 
