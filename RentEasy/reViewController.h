@@ -11,7 +11,8 @@
 
 @interface REViewController : UIViewController
 
-
 @property (strong, nonatomic) IBOutlet UITextView *textView;
+- (IBAction)tenantLoginPressed:(id)sender;
+- (IBAction)landlordLoginPressed:(id)sender;
 
 @end

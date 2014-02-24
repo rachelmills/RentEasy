@@ -8,14 +8,18 @@
 
 #import <UIKit/UIKit.h>
 
-@interface RE_AddPropertyControllerViewController : UIViewController <UIActionSheetDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate> {
+@interface RE_AddPropertyControllerViewController : UIViewController <UIActionSheetDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate>
+{
     
     IBOutlet UISegmentedControl *segment;
     IBOutlet UISegmentedControl *bedsSegment;
     IBOutlet UISegmentedControl *bathsSegment;
     IBOutlet UISegmentedControl *carSpacesSegment;
     IBOutlet UISegmentedControl *petsYesNo;
-}
+    }
+
+@property (strong, nonatomic) IBOutlet UITextField *propertyAddress;
+@property (strong, nonatomic) IBOutlet UIScrollView *scrollView;
 
 - (IBAction)selectPropertyType:(UISegmentedControl *)sender;
 - (IBAction)selectNumberOfBeds:(UISegmentedControl *)sender;
@@ -25,9 +29,9 @@
 
 
 @property (strong, nonatomic) NSString *propertyType;
-@property NSInteger numberOfBeds;
-@property NSInteger numberOfBathrooms;
-@property NSInteger numberOfCarSpaces;
+@property int numberOfBeds;
+@property int numberOfBathrooms;
+@property int numberOfCarSpaces;
 @property (nonatomic) BOOL petsAllowed;
 
 @property (strong, nonatomic) NSMutableArray *images;

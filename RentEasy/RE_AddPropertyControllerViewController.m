@@ -17,6 +17,8 @@
 @end
 
 @implementation RE_AddPropertyControllerViewController
+@synthesize scrollView;
+@synthesize propertyAddress;
 
 UILabel *label;
 
@@ -31,16 +33,69 @@ UILabel *label;
 
 - (void)viewDidLoad
 {
+    //---set the viewable frame of the scroll view---
+    scrollView.frame = CGRectMake(0, 0, 320, 460);
+    
+    //---set the content size of the scroll view---
+    [scrollView setContentSize:CGSizeMake(320, 568)];
+    
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
+    [self registerForKeyboardNotifications];
     
     UIFont *font = [UIFont boldSystemFontOfSize:8.0f];
     NSDictionary *attributes = [NSDictionary dictionaryWithObject:font
                                                            forKey:NSFontAttributeName];
     [segment setTitleTextAttributes:attributes
                                     forState:UIControlStateNormal];
-    
 }
+
+- (void)registerForKeyboardNotifications
+{
+    [[NSNotificationCenter defaultCenter] addObserver:self
+     
+                                             selector:@selector(keyboardWasShown:)
+     
+                                                 name:UIKeyboardDidShowNotification object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self
+     
+                                             selector:@selector(keyboardWillBeHidden:)
+     
+                                                 name:UIKeyboardWillHideNotification object:nil];
+}
+
+// Called when the UIKeyboardDidShowNotification is sent.
+
+- (void)keyboardWasShown:(NSNotification*)aNotification
+{
+    NSDictionary* info = [aNotification userInfo];
+    
+    CGSize kbSize = [[info objectForKey:UIKeyboardFrameBeginUserInfoKey] CGRectValue].size;
+    
+    UIEdgeInsets contentInsets = UIEdgeInsetsMake(0.0, 0.0, kbSize.height, 0.0);
+    
+    scrollView.contentInset = contentInsets;
+    
+    scrollView.scrollIndicatorInsets = contentInsets;
+    
+    // If active text field is hidden by keyboard, scroll it so it's visible
+    
+    CGRect aRect = self.view.frame;
+    
+    aRect.size.height -= kbSize.height;
+}
+
+// Called when the UIKeyboardWillHideNotification is sent
+
+- (void)keyboardWillBeHidden:(NSNotification*)aNotification
+{
+    UIEdgeInsets contentInsets = UIEdgeInsetsZero;
+    
+    scrollView.contentInset = contentInsets;
+    
+    scrollView.scrollIndicatorInsets = contentInsets;
+}
+
 
 - (IBAction)selectPropertyType:(UISegmentedControl *)sender {
     if (segment.selectedSegmentIndex == 0) {
@@ -132,6 +187,8 @@ UILabel *label;
         [property setObject:[NSNumber numberWithInt:self.numberOfBathrooms] forKey:@"NumberOfBathrooms"];
         [property setObject:[NSNumber numberWithInt:self.numberOfCarSpaces] forKey:@"NumberOfCarSpaces"];
         [property setObject:[NSNumber numberWithBool:self.petsAllowed] forKey:@"PetsAllowed"];
+        [property setObject:propertyAddress.text forKey:@"PropertyAddress"];
+        property[@"user"] = [PFUser currentUser].username;
         [property saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
             
             if (succeeded){
@@ -172,9 +229,22 @@ UILabel *label;
     }];
         
     }
-    
-
 }
+
+-(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
+    
+    RE_PhotoController *photoController = segue.destinationViewController;
+    
+    photoController.photoType = @"propertyPhoto";
+}
+
+- (BOOL)canPerformUnwindSegueAction:(SEL)action
+                 fromViewController:(RE_PhotoController *)photoController withSender:(id)sender {
+    if ([photoController.photoType isEqualToString:@"propertyPhoto"]) {
+        return TRUE;
+    } else return FALSE;
+}
+
 
 -(IBAction)uploadPhotos:(UIStoryboardSegue *)segue {
     // have access to source here

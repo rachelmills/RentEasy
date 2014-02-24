@@ -19,6 +19,9 @@
 
 @implementation ServiceProviderLoginViewController
 
+@synthesize emailTextField;
+@synthesize passwordTextField;
+
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
@@ -30,13 +33,21 @@
 
 -(IBAction)logInPressed:(id)sender
 {
-    [PFUser logInWithUsernameInBackground:self.emailTextField.text password:self.passwordTextField.text block:^(PFUser *user, NSError *error) {
-        if (user) {
-            [self performSegueWithIdentifier:@"LoginSuccessful" sender:self];
-        } else {
+    NSError *error = nil;
+    if (emailTextField && passwordTextField && emailTextField.text.length && passwordTextField.text.length) {
+        PFUser *user = [PFUser logInWithUsername:self.emailTextField.text password:self.passwordTextField.text error:&error];
+        if (!user) {
             [[[UIAlertView alloc] initWithTitle:@"Error" message:[error userInfo][@"error"] delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil] show];
+        } else {
+            if ([[[PFUser currentUser] objectForKey:@"userType"] isEqualToString:@"Service Provider"]) {
+                [self performSegueWithIdentifier:@"LoginSuccessful" sender:self];
+            } else {
+                [[[UIAlertView alloc] initWithTitle:NSLocalizedString(@"Access discrepancy", nil) message:NSLocalizedString(@"You do not have permission to access this page", nil) delegate:nil cancelButtonTitle:NSLocalizedString(@"OK", nil) otherButtonTitles:nil] show];
+            }
         }
-    }];
+    } else {
+        [[[UIAlertView alloc] initWithTitle:NSLocalizedString(@"Missing Information", nil) message:NSLocalizedString(@"Make sure you fill in all of the information", nil) delegate:nil cancelButtonTitle:NSLocalizedString(@"OK", nil) otherButtonTitles:nil] show];
+    }
 }
 
 - (BOOL) textFieldShouldReturn:(UITextField *) textField {

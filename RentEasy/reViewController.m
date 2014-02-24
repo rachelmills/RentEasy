@@ -18,42 +18,84 @@
 @property (strong, nonatomic) NSString* userType;
 @property (strong, nonatomic) IBOutlet UITextField *landlordEmail;
 @property (strong, nonatomic) IBOutlet UITextField *landlordPassword;
-
+@property (nonatomic) BOOL loginValid;
+@property (nonatomic) BOOL loginPressed;
 
 @end
 
 @implementation REViewController
 
+@synthesize tenantEmail;
+@synthesize tenantPassword;
+@synthesize landlordEmail;
+@synthesize landlordPassword;
+@synthesize loginValid;
+@synthesize loginPressed;
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
 	// Do any additional setup after loading the view, typically from a nib.
 
     
     _textView.layer.cornerRadius = 10;
 }
 
-- (IBAction)landlordLoginPressed:(id)sender {
-    [PFUser logInWithUsernameInBackground:self.landlordEmail.text password:self.landlordPassword.text block:^(PFUser *user, NSError *error) {
+- (IBAction)tenantLoginPressed:(id)sender {
+    NSError *error = nil;
+    loginPressed = true;
+    if (tenantEmail && tenantPassword && tenantEmail.text.length && tenantPassword.text.length) {
+        loginValid = TRUE;
+        PFUser *user = [PFUser logInWithUsername:self.tenantEmail.text password:self.tenantPassword.text error:&error];
         if (!user) {
-            //[self performSegueWithIdentifier:@"LandlordLoginSuccessful" sender:self];
-            [[[UIAlertView alloc] initWithTitle:@"Error" message:[error userInfo][@"error"] delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil] show];
-                    } //else {
-        //    [[[UIAlertView alloc] initWithTitle:@"Error" message:[error userInfo][@"error"] delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil] show];
-        //}
-    }];
-
+            loginValid = FALSE;
+            NSString *errorString = [error userInfo][@"error"];
+            [[[UIAlertView alloc] initWithTitle:@"Error" message:errorString delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil] show];
+        } else {
+            if ([[[PFUser currentUser] objectForKey:@"userType" ] isEqualToString:@"Tenant"]) {
+            [self performSegueWithIdentifier:@"TenantLoginSuccessful" sender:nil];
+            } else {
+                [[[UIAlertView alloc] initWithTitle:NSLocalizedString(@"Access discrepancy", nil) message:NSLocalizedString(@"You do not have permission to access this page", nil) delegate:nil cancelButtonTitle:NSLocalizedString(@"OK", nil) otherButtonTitles:nil] show];
+            }
+        }
+    } else {
+        loginValid = FALSE;
+        [[[UIAlertView alloc] initWithTitle:NSLocalizedString(@"Missing Information", nil) message:NSLocalizedString(@"Make sure you fill in all of the information!", nil) delegate:nil cancelButtonTitle:NSLocalizedString(@"OK", nil) otherButtonTitles:nil] show];
+    }
 }
 
--(IBAction)tenantLoginPressed:(id)sender
-{
-    [PFUser logInWithUsernameInBackground:self.tenantEmail.text password:self.tenantPassword.text block:^(PFUser *user, NSError *error) {
-        if (user) {
-            [self performSegueWithIdentifier:@"TenantLoginSuccessful" sender:self];
-        } else {
-            [[[UIAlertView alloc] initWithTitle:@"Error" message:[error userInfo][@"error"] delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil] show];
-        }
-    }];
+- (IBAction)landlordLoginPressed:(id)sender {
+    NSError *error = nil;
+    loginPressed = TRUE;
+    if (landlordEmail && landlordPassword && landlordEmail.text.length && landlordPassword.text.length) {
+        loginValid = TRUE;
+        PFUser *user = [PFUser logInWithUsername:self.landlordEmail.text password:self.landlordPassword.text error:&error];
+            if (user) {
+                if ([[[PFUser currentUser] objectForKey:@"userType"] isEqualToString:@"Landlord"]) {
+                    NSString *privateChannelName = [NSString stringWithFormat:@"user_%@", [user objectId]];
+                    // Add the user to the installation so we can track the owner of the device
+                    [[PFInstallation currentInstallation] setObject:[PFUser currentUser] forKey:@"user"];
+                    // Subscribe user to private channel
+                    [[PFInstallation currentInstallation] addUniqueObject:privateChannelName forKey:@"channels"];
+                    // Save installation object
+                    [[PFInstallation currentInstallation] saveEventually];
+                    
+                    [user setObject:privateChannelName forKey:@"privatechannelkey"];
+                    [self performSegueWithIdentifier:@"LandlordLoginSuccessful" sender:nil];
+
+                } else {
+                    [[[UIAlertView alloc] initWithTitle:NSLocalizedString(@"Access discrepancy", nil) message:NSLocalizedString(@"You do not have permission to access this page", nil) delegate:nil cancelButtonTitle:NSLocalizedString(@"OK", nil) otherButtonTitles:nil] show];
+                }
+            } else {
+                loginValid = FALSE;
+                NSString *errorString = [error userInfo][@"error"];
+                [[[UIAlertView alloc] initWithTitle:@"Error" message:errorString delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil] show];
+            } 
+    } else {
+        loginValid = FALSE;
+        [[[UIAlertView alloc] initWithTitle:NSLocalizedString(@"Missing Information", nil) message:NSLocalizedString(@"Make sure you fill in all of the information!", nil) delegate:nil cancelButtonTitle:NSLocalizedString(@"OK", nil) otherButtonTitles:nil] show];
+    }
 }
 
 - (BOOL) textFieldShouldReturn:(UITextField *) textField {
@@ -67,7 +109,6 @@
     return YES;
     
 }
-
 
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
     
@@ -83,9 +124,6 @@
         transferViewController.userType = @"Tenant";
     }
 }
-
-
-
 
 - (void)didReceiveMemoryWarning
 {

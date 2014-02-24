@@ -13,6 +13,7 @@
 @property (strong, nonatomic) IBOutlet UIImageView *imageView;
 @property (strong, nonatomic) IBOutlet UIButton *uploadPhoto;
 @property (strong, nonatomic) NSMutableArray *images;
+@property (strong, nonatomic) NSString *photoType;
 
 //-(IBAction)takePhoto:(UIButton *)sender;
 //-(IBAction)selectPhoto:(UIButton *)sender;

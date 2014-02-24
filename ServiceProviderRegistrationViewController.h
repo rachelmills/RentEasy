@@ -19,6 +19,7 @@
 
 - (IBAction)selectSpecialitytype:(UISegmentedControl *)sender;
 
+@property (strong, nonatomic) IBOutlet UIScrollView *scrollView;
 @property (strong, nonatomic) NSString *specialityType;
 
 @end

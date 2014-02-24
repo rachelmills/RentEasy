@@ -11,5 +11,6 @@
 @interface RegistrationViewController : UIViewController
 
 @property (strong, nonatomic) NSString *userType;
+@property (strong, nonatomic) IBOutlet UIScrollView *scrollView;
 
 @end

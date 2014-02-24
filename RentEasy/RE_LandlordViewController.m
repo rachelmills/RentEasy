@@ -7,6 +7,7 @@
 //
 
 #import "RE_LandlordViewController.h"
+#import <Parse/Parse.h>
 
 @interface RE_LandlordViewController ()
 
@@ -27,6 +28,22 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
+}
+
+- (IBAction)logOut:(id)sender {
+    // Unsubscribe from push notifications by removing the user association from the current installation.
+    [[PFInstallation currentInstallation] removeObjectForKey:@"user"];
+    [[PFInstallation currentInstallation] removeObject:[[PFUser currentUser] objectForKey:@"privatechannelkey"] forKey:@"channels"];
+    [[PFInstallation currentInstallation] saveInBackground];
+    
+    // Clear all caches
+    [PFQuery clearAllCachedResults];
+    
+    // Log out
+    [PFUser logOut];
+    
+    // clear out cached data, view controllers, etc
+    [self.navigationController popViewControllerAnimated:NO];
 }
 
 - (void)didReceiveMemoryWarning
