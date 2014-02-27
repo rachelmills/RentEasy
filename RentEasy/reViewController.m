@@ -39,7 +39,7 @@
 	// Do any additional setup after loading the view, typically from a nib.
 
     
-    _textView.layer.cornerRadius = 10;
+    //_textView.layer.cornerRadius = 10;
 }
 
 - (IBAction)tenantLoginPressed:(id)sender {
